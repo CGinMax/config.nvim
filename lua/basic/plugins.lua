@@ -172,6 +172,14 @@ packer.startup(
         require("plugin-config.nvim-cmp")
       end
     }
+
+    -- toggleterm: 终端
+    use {
+      "akinsho/toggleterm.nvim",
+      config = function()
+        require("plugin-config.toggleterm")
+      end
+    }
     -- 代码格式化
     -- use {
     --   "sbdchd/neoformat",
