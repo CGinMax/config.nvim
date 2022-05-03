@@ -1,7 +1,6 @@
 ---@diagnostic disable: undefined-global
 -- https://github.com/wbthomason/packer.nvim
 
-
 local packer = require("packer")
 packer.startup(
 {
@@ -77,13 +76,12 @@ packer.startup(
       end
     }
     -- comment.nvim
-    -- use {
-    --   "numToStr/Comment.nvim",
-    --   config = function()
-    --     -- require("plugin-config.comment-nvim")
-    --     require("Comment").setup()
-    --   end
-    -- }
+    use {
+      "numToStr/Comment.nvim",
+      config = function()
+        require("plugin-config.comment-nvim")
+      end
+    }
 
     -- catppuccin.nvim:界面美化
     use {
@@ -146,6 +144,8 @@ packer.startup(
         -- options
         "BurntSushi/ripgrep", -- 文字查找
         "sharkdp/fd", -- 文本查找
+        "nvim-telescope/telescope-live-grep-raw.nvim", -- 搜索预览
+        "nvim-telescope/telescope-ui-select.nvim", -- ui-select
       },
       config = function()
         require("plugin-config.telescope")
@@ -178,6 +178,36 @@ packer.startup(
       "akinsho/toggleterm.nvim",
       config = function()
         require("plugin-config.toggleterm")
+      end
+    }
+
+    -- litee: 调用查询
+    use {
+      "ldelossa/litee.nvim",
+      config = function ()
+        require("plugin-config.litee")
+      end
+    }
+    use {
+      "ldelossa/litee-calltree.nvim",
+      config = function ()
+        require("plugin-config.litee-calltree")
+      end
+    }
+    -- trouble: 错误显示
+    use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function ()
+        require("plugin-config.trouble")
+      end
+    }
+
+    -- which key
+    use {
+      "folke/which-key.nvim",
+      config = function ()
+        require("plugin-config.which-key")
       end
     }
     -- 代码格式化

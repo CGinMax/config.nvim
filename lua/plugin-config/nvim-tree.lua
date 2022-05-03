@@ -2,17 +2,17 @@
 require("nvim-tree").setup(
 {
   -- 自动关闭
-  auto_close = false,
+  -- auto_close = false,
   -- 视图
   view = {
     -- 宽度
-    width = 30,
+    width = 25,
     -- 高度
-    height = 30,
+    -- height = 30,
     -- 隐藏顶部的根目录显示
     hide_root_folder = false,
     -- 自动调整大小
-    auto_resize = true
+    -- auto_resize = true
   },
   diagnostics = {
     -- 是否启用文件诊断信息

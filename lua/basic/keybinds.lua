@@ -1,4 +1,3 @@
-
 vim.g.mapleader=";"
 vim.g.maplocalleader=";"
 
@@ -24,21 +23,13 @@ vim.keybinds.gmap("n", "<C-l>", "<C-w>l", vim.keybinds.opts)
 
 -- winshift
 vim.keybinds.gmap("n", "<C-W>m", ":WinShift<CR>", vim.keybinds.opts)
--- vim.keybinds.gmap("n", "<C-Tab>", ":bnext", vim.keybinds.opts)
 
--- bufferline
-vim.keybinds.gmap("n", "tn", ":BufferLineCycleNext<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "tp", ":BufferLineCyclePrev<CR>", vim.keybinds.opts)
--- vim.keybinds.gmap("n", "tc", ":BufferLinePickClose<CR>", vim.keybinds.opts)
+-- Resize with arrows
+vim.keybinds.gmap("n", "<C-Up>", ":resize -2<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-Down>", ":resize +2<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-Left>", ":vertical resize -2<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-Right>", ":vertical resize +2<CR>", vim.keybinds.opts)
 
-vim.keybinds.gmap("n", "t1", ":BufferLineGoToBuffer 1<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t2", ":BufferLineGoToBuffer 2<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t3", ":BufferLineGoToBuffer 3<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t4", ":BufferLineGoToBuffer 4<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t5", ":BufferLineGoToBuffer 5<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t6", ":BufferLineGoToBuffer 6<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t7", ":BufferLineGoToBuffer 7<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t8", ":BufferLineGoToBuffer 8<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t9", ":BufferLineGoToBuffer 9<CR>", vim.keybinds.opts)
-
-
+-- Move tetx up and down
+vim.keybinds.gmap("n", "<A-j>", "<Esc>:m .+1<CR>==gi<Esc>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<A-k>", "<Esc>:m .-2<CR>==gi<Esc>", vim.keybinds.opts)

@@ -45,12 +45,22 @@ vim.o.ignorecase = true
 -- 是否开启在搜索时如果有大写字母，则关闭忽略大小写的选项
 vim.o.smartcase = true
 -- 是否开启单词拼写检查
-vim.o.spell = true
+vim.o.spell = false
 -- 设定单词拼写检查的语言
-vim.o.spelllang = "en_us,cjk"
+vim.o.spelllang = "en_us"
 -- 是否开启代码折叠
 vim.o.foldenable = true
 -- 指定代码折叠的策略是按照缩进进行的
 vim.o.foldmethod = "indent"
 -- 指定代码折叠的最高层级为 100
 vim.o.foldlevel = 100
+-- 是否将 tab 替换为 space
+vim.o.expandtab = true
+-- 换行或 >> << 缩进时的 space 数量
+vim.o.shiftwidth = 2
+-- 一个 tab 占用几个 space
+vim.o.tabstop = 2
+-- tab 和 space 的混合，和上面 2 个设置成相同即可
+vim.o.softtabstop = 2
+-- 取消自动注释，当前行是 -- 注释时，按下 CR 或者 o 默认会自动注释下一行，所以这里取消了
+vim.opt_local.formatoptions = vim.opt_local.formatoptions - {"c", "r", "o"}

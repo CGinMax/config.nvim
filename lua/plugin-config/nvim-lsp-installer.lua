@@ -18,13 +18,14 @@ local servers = {
   cmake = require("lsp.cmake"),
   html = require("lsp.html"),
   eslint = require("lsp.eslint"),
+  volar = require("lsp.volar"),
+  tsserver = require("lsp.tsserver"),
+
   -- pyright = require("lsp.pyright"),
-  -- tsserver = require("lsp.tsserver"),
   -- cssls = require("lsp.cssls"),
   -- jsonls = require("lsp.jsonls"),
   -- zeta_note = require("lsp.zeta_note"),
   -- sqls = require("lsp.sqls"),
-  -- vuels = require("lsp.vuels")
 }
 
 -- 这里是 LSP 服务启动后的按键加载
