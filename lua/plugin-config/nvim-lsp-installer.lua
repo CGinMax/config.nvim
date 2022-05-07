@@ -37,7 +37,8 @@ local function attach(_, bufnr)
   -- 工作区诊断（代替内置 LSP 的窗口，telescope 插件让工作区诊断更方便）
   vim.keybinds.bmap(bufnr, "n", "go", "<cmd>Telescope diagnostics theme=dropdown<CR>", vim.keybinds.opts)
   -- 显示代码可用操作（代替内置 LSP 的窗口，telescope 插件让代码行为更方便）
-  vim.keybinds.bmap(bufnr, "n", "<leader>ca", "<cmd>Telescope lsp_code_actions theme=dropdown<CR>", vim.keybinds.opts)
+  -- remove
+  -- vim.keybinds.bmap(bufnr, "n", "<leader>ca", "<cmd>Telescope lsp_code_actions theme=dropdown<CR>", vim.keybinds.opts)
   -- 变量重命名（代替内置 LSP 的窗口，Lspsaga 让变量重命名更美观）
   vim.keybinds.bmap(bufnr, "n", "<leader>cn", "<cmd>Lspsaga rename<CR>", vim.keybinds.opts)
   -- 查看帮助信息（代替内置 LSP 的窗口，Lspsaga 让查看帮助信息更美观）

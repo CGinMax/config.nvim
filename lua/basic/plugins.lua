@@ -181,6 +181,14 @@ packer.startup(
       end
     }
 
+    -- project: 工程管理
+    use {
+      "ahmedkhalf/project.nvim",
+      config = function()
+        require("plugin-config.project")
+      end
+    }
+
     -- litee: 调用查询
     use {
       "ldelossa/litee.nvim",
@@ -217,13 +225,6 @@ packer.startup(
     --       require("plugin-config.neoformat")
     --   end
     -- }
-    -- feline:状态栏样式
---    use {
---      "feline-nvim/feline.nvim",
-    --  config = function()
-     --   require("plugin-config.feline")
-      --end
-    --}
     -- windline
     --use {
     --  "windwp/windline.nvim",

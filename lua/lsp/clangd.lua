@@ -16,7 +16,7 @@ return {
     "--function-arg-placeholders=true",
     "--log=verbose",
     "--header-insertion-decorators",
-    "-j=4",
+    "-j=6",
     "--pretty",
   },
   filetypes = {"c", "cpp", "cc", "objc", "objcpp"},
