@@ -16,7 +16,8 @@ vim.diagnostic.config(
     -- 是否显示诊断来源？是的
     source = "always"
   },
+  underline = true,
   -- 在插入模式下是否显示诊断？不要
-  update_in_insert = false
+  update_in_insert = true
 }
 )
