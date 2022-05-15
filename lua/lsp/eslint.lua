@@ -1,8 +1,7 @@
 -- eslint
-local home_dir = os.getenv("HOME")
-local lua_lsp_bin = string.format("%s/%s", home_dir, ".local/share/nvim/lsp_servers/vscode-eslint/node_modules/vscode-langservers-extracted/bin/vscode-eslint-language-server")
+local lsp_bin_path = vim.fn.stdpath "data" .. "/lsp_servers/vscode-eslint/node_modules/vscode-langservers-extracted/bin/vscode-eslint-language-server"
 return {
-  cmd = {lua_lsp_bin},
+  cmd = {lsp_bin_path},
   filetypes = {"ts", "tsx", "js", "jsx", "vue"},
   log_level = 2,
   root_dir = function()

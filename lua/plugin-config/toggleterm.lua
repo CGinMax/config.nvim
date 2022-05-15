@@ -7,6 +7,7 @@ end
 toggleterm.setup({
   -- size can be a number or function which is passed the current terminal
   size = 20,
+  open_mapping = [[<c-\>]],
   hide_numbers = false,
   shade_filetypes = {},
   shade_terminals = true,

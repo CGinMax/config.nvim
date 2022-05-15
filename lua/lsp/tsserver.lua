@@ -1,8 +1,7 @@
 -- tsserver
-local home_dir = os.getenv("HOME")
-local lua_lsp_bin = string.format("%s/%s", home_dir, ".local/share/nvim/lsp_servers/tsserver/node_modules/typescript/bin/tsserver")
+local lsp_bin_path = vim.fn.stdpath "data" .. "/lsp_servers/tsserver/node_modules/typescript/bin/tsserver"
 return {
-  cmd = {lua_lsp_bin},
+  cmd = {lsp_bin_path},
   filetypes = {"ts", "tsx"},
   log_level = 2,
   root_dir = function()
