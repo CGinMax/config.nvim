@@ -35,4 +35,5 @@ vim.keybinds.gmap("n", "<A-j>", "<Esc>:m .+1<CR>==gi<Esc>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<A-k>", "<Esc>:m .-2<CR>==gi<Esc>", vim.keybinds.opts)
 
 -- code action
-vim.keybinds.gmap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", vim.keybinds.opts)
+vim.keybinds.bmap(0, "n", "gx", "<cmd>Lspsaga code_action<cr>", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", vim.keybinds.opts)
