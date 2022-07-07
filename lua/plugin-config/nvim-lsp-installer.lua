@@ -63,6 +63,20 @@ local function attach(_, bufnr)
   "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
   vim.keybinds.opts
   )
+  vim.api.nvim_create_autocmd("CursorHold", {
+    buffer = bufnr,
+    callback = function()
+      local opts = {
+        focusable = false,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        border = 'rounded',
+        source = 'always',
+        prefix = ' ',
+        scope = 'cursor',
+      }
+      vim.diagnostic.open_float(nil, opts)
+    end
+  })
 end
 
 -- 自动安装或启动 LanguageServers

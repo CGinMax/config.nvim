@@ -112,8 +112,8 @@ local mappings = {
 
   ["P"] = { "<cmd>SessionManager load_session<cr>", "Projects" },
 
-  ["t"] = {
-    "<cmd>UltestSummary<CR>", "Unit Test"
+  ["T"] = {
+    "<cmd>TroubleToggle<CR>", "Trouble Toggle"
   },
 
   ["o"] = {
