@@ -18,6 +18,6 @@ vim.diagnostic.config(
   },
   underline = true,
   -- 在插入模式下是否显示诊断？不要
-  update_in_insert = true
+  update_in_insert = false
 }
 )

@@ -40,9 +40,15 @@ local function attach(_, bufnr)
   -- remove
   -- vim.keybinds.bmap(bufnr, "n", "<leader>ca", "<cmd>Telescope lsp_code_actions theme=dropdown<CR>", vim.keybinds.opts)
   -- 变量重命名（代替内置 LSP 的窗口，Lspsaga 让变量重命名更美观）
-  vim.keybinds.bmap(bufnr, "n", "<leader>cn", "<cmd>Lspsaga rename<CR>", vim.keybinds.opts)
+  vim.keybinds.bmap(bufnr, "n", "<leader>rn", "<cmd>Lspsaga rename<CR>", vim.keybinds.opts)
+  -- 预览
+  vim.keybinds.bmap(bufnr, "n", "gp", "<cmd>Lspsaga preview_definition<CR>", vim.keybinds.opts)
   -- 查看帮助信息（代替内置 LSP 的窗口，Lspsaga 让查看帮助信息更美观）
-  vim.keybinds.bmap(bufnr, "n", "gh", "<cmd>Lspsaga hover_doc<CR>", vim.keybinds.opts)
+  vim.keybinds.bmap(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<CR>", vim.keybinds.opts)
+  -- 查看引用
+  vim.keybinds.bmap(bufnr, "n", "gf", "<cmd>Lspsaga lsp_finder<CR>", vim.keybinds.opts)
+  -- 查看错误
+  vim.keybinds.bmap(bufnr, "n", "gsd", "<cmd>Lspsaga show_line_diagnostics<CR>", vim.keybinds.opts)
   -- 跳转到上一个问题（代替内置 LSP 的窗口，Lspsaga 让跳转问题更美观）
   vim.keybinds.bmap(bufnr, "n", "g[", "<cmd>Lspsaga diagnostic_jump_prev<CR>", vim.keybinds.opts)
   -- 跳转到下一个问题（代替内置 LSP 的窗口，Lspsaga 让跳转问题更美观）
@@ -68,13 +74,13 @@ local function attach(_, bufnr)
     callback = function()
       local opts = {
         focusable = false,
-        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        close_events = { "BufLeave", "CursorMoved","InsertEnter", "FocusLost" },
         border = 'rounded',
         source = 'always',
         prefix = ' ',
         scope = 'cursor',
       }
-      vim.diagnostic.open_float(nil, opts)
+      -- vim.diagnostic.open_float(nil, opts)
     end
   })
 end
