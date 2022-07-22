@@ -149,4 +149,5 @@ vim.keybinds.gmap("n", "<leader>fh", "<cmd>Telescope help_tags <CR>", vim.keybin
 vim.keybinds.gmap("n", "<leader>fo", "<cmd>Telescope oldfiles <CR>", vim.keybinds.opts)
 -- 查找 marks 标记
 vim.keybinds.gmap("n", "<leader>fm", "<cmd>Telescope marks <CR>", vim.keybinds.opts)
-
+-- 查看工程
+vim.keybinds.gmap("n", "<leader>fp", "<cmd>Telescope projects <CR>", vim.keybinds.opts)

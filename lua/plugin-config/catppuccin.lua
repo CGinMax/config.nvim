@@ -1,23 +1,35 @@
 -- https://github.com/catppuccin/nvim
+local ok, catppuccin = pcall(require, "catppuccin")
+if not ok then
+  vim.notify("catppuccin not found")
+  return
+end
 
-require("catppuccin").setup(
+vim.g.catppuccin_flavour = "mocha"
+catppuccin.setup(
 {
+  dim_inactive = {
+		enabled = false,
+		shade = "dark",
+		percentage = 0.15,
+	},
   -- 透明背景
   transparent_background = false,
   -- 使用终端背景色
   term_color = false,
   -- 代码样式
   styles = {
-    comments = "italic",
-    functions = "NONE",
-    keywords = "NONE",
-    strings = "NONE",
-    variables = "NONE"
+    comments = {"italic"},
+    functions = {},
+    keywords = {},
+    strings = {},
+    variables = {}
   },
   -- 为不同的插件统一样式风格
   -- 尽管这里有一些插件还没有安装，但是先将它们
   -- 设置为 true 并不影响
   integrations = {
+    treesitter = true,
     cmp = true,
     gitsigns = true,
     telescope = true,
@@ -40,16 +52,16 @@ require("catppuccin").setup(
     native_lsp = {
       enabled = true,
       virtual_text = {
-        errors = "italic",
-        hints = "italic",
-        warnings = "italic",
-        information = "italic"
+        errors = { "italic" },
+        hints = { "italic" },
+        warnings = { "italic" },
+        information = { "italic" },
       },
       underlines = {
-        errors = "underline",
-        hints = "underline",
-        warnings = "underline",
-        information = "underline"
+        errors = { "underline" },
+        hints = { "underline" },
+        warnings = { "underline" },
+        information = { "underline" },
       }
     },
     -- 后面我们自己会手动设置

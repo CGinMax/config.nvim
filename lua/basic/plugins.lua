@@ -249,6 +249,14 @@ return packer.startup(function (use)
       require("plugin-config.which-key")
     end
   }
+  -- alpha-nvim:启动界面
+  use {
+    "goolord/alpha-nvim",
+    requires = {"kyazdani42/nvim-web-devicons"},
+    config = function()
+      require("plugin-config.alpha-nvim")
+    end
+  }
   -- 代码格式化
   -- use {
   --   "sbdchd/neoformat",
