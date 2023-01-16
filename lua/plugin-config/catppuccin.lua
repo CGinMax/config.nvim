@@ -5,16 +5,19 @@ if not ok then
   return
 end
 
-vim.g.catppuccin_flavour = "mocha"
-catppuccin.setup(
-{
+catppuccin.setup( {
+  flavour = "macchiato",
+  background = {
+    light = "latte",
+    dark = "macchiator",
+  },
+  -- 透明背景
+  transparent_background = false,
   dim_inactive = {
 		enabled = false,
 		shade = "dark",
 		percentage = 0.15,
 	},
-  -- 透明背景
-  transparent_background = false,
   -- 使用终端背景色
   term_color = false,
   -- 代码样式
@@ -71,4 +74,5 @@ catppuccin.setup(
 )
 
 -- 应用主题
-vim.cmd([[colorscheme catppuccin]])
+vim.cmd.colorscheme "catppuccin"
+-- vim.cmd([[colorscheme catppuccin]])

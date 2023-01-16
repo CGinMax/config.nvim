@@ -1,3 +1,4 @@
+-- "https://github.com/folke/trouble.nvim"
 local ok, trouble = pcall(require, "trouble")
 if not ok then
   vim.notify("trouble is not found")
@@ -9,17 +10,19 @@ trouble.setup({
   height = 10, -- height of the trouble list when position is top or bottom
   width = 50, -- width of the list when position is left or right
   icons = true, -- use devicons for filenames
-  mode = "document_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
+  mode = "workspace_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
   fold_open = "", -- icon used for open folds
+  fold_closed = "", -- icon used for closed folds
+  group = true, -- group results by file
+  padding = true, -- add an extra new line on top of the list
   action_keys = {
-    fold_closed = "", -- icon used for closed folds
     -- key mappings for actions in the trouble list
     -- map to {} to remove a mapping, for example:
     -- close = {},
     close = "q", -- close the list
     cancel = "<esc>", -- cancel the preview and get back to your last window / buffer / cursor
     refresh = "r", -- manually refresh
-    jump = { "o", "<tab>" }, -- jump to the diagnostic or open / close folds
+    jump = { "<cr>", "<tab>" }, -- jump to the diagnostic or open / close folds
     open_split = { "<c-x>" }, -- open buffer in new split
     open_vsplit = { "<c-v>" }, -- open buffer in new vsplit
     open_tab = { "<c-t>" }, -- open buffer in new tab

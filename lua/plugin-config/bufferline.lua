@@ -8,7 +8,17 @@ require("bufferline").setup(
     -- 使用内置 LSP 进行诊断
     diagnostics = "nvim_lsp",
     -- 不建议更改图标
-    indicator_icon = "▎",
+    indicator = {
+      icon = "▎",
+      style = "icon",
+    },
+    color_icons = true,
+    show_buffer_icons = true, -- disable filetype icons for buffers
+    show_buffer_close_icons = true,
+    show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
+    show_close_icon = true,
+    show_tab_indicators = true,
+    show_duplicate_prefix = true, -- whether to show duplicate buffer prefix
     buffer_close_icon = "",
     modified_icon = "●",
     close_icon = "",
@@ -23,18 +33,46 @@ require("bufferline").setup(
         filetype = "NvimTree",
         text = "File Explorer",
         highlight = "Directory",
-        text_align = "left"
+        text_align = "left",
+        separator = true,
       }
     },
     -- 显示 LSP 报错图标
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       local s = " "
       for e, n in pairs(diagnostics_dict) do
-        local sym = e == "error" and " " or (e == "warning" and " " or "")
+        local sym = e == "error" and "" or (e == "warning" and "" or "")
         s = s .. n .. sym
       end
       return s
-    end
+    end,
+
+    custom_areas = {
+      right = function()
+        local result = {}
+        local seve = vim.diagnostic.severity
+        local error = #vim.diagnostic.get(0, {severity = seve.ERROR})
+        local warning = #vim.diagnostic.get(0, {severity = seve.WARN})
+        local info = #vim.diagnostic.get(0, {severity = seve.INFO})
+        local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
+        if (error ~= 0) then
+          table.insert(result, {text="  " .. error, fg = '#EC5241'})
+        end
+
+        if (warning ~= 0) then
+          table.insert(result, {text="  " .. error, fg = '#EFB839'})
+        end
+
+        if (hint ~= 0) then
+          table.insert(result, {text="  " .. error, fg = '#A3BA5E'})
+        end
+
+        if (info ~= 0) then
+          table.insert(result, {text="  " .. error, fg = '#7EA9A7'})
+        end
+        return result
+      end,
+    }
   }
 }
 )

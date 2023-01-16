@@ -2,7 +2,7 @@
 -- https://github.com/wbthomason/packer.nvim
 
 local fn = vim.fn
-local install_path = fn.stdpath "data".. "/site/packer/start/packer.nvim"
+local install_path = fn.stdpath("data").. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system {
     "git",
@@ -18,25 +18,17 @@ end
 vim.cmd [[
 augroup packer_user_config
 autocmd!
-autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+autocmd BufWritePost plugins.lua source <afile> | PackerSync
 augroup end
 ]]
-
 
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
   print("Load packer failed!")
   return
 end
-
-packer.init {
-  display = {
-    open_fn = function ()
-      return require("packer.util").float({border = "rounded"})
-    end,
-  },
-}
-return packer.startup(function (use)
+return packer.startup(
+{function (use)
   use "wbthomason/packer.nvim"
 
   -- lsp
@@ -95,6 +87,10 @@ return packer.startup(function (use)
   -- feline:状态栏美化
   use {
     "feline-nvim/feline.nvim",
+    requires = {
+      "lewis6991/gitsigns.nvim",
+      "kyazdani42/nvim-web-devicons",
+    },
     config = function()
       require("plugin-config.feline")
     end
@@ -115,6 +111,9 @@ return packer.startup(function (use)
   }
 
   -- catppuccin.nvim:界面美化
+  -- 其它plugin
+  -- folke/tokyonight.nvim
+  -- EdenEast/nightfox.nvim
   use {
     "catppuccin/nvim",
     -- 仓库命为nvim，有冲突，进行as做别名
@@ -246,6 +245,8 @@ return packer.startup(function (use)
   use {
     "folke/which-key.nvim",
     config = function ()
+      vim.o.timeout = true
+      vim.o.timeout = 300
       require("plugin-config.which-key")
     end
   }
@@ -271,4 +272,17 @@ return packer.startup(function (use)
   --    require("plugin-config.windline")
   --  end
   --}
-end)
+end,
+config = {
+  display = {
+    open_fn = function ()
+      return require("packer.util").float({border = "rounded"})
+    end,
+  },
+  profile = {
+    enable = true,
+    threshold = 1
+  }
+}
+}
+)
