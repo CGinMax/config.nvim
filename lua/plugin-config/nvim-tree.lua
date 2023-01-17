@@ -1,18 +1,16 @@
 -- https://github.com/kyazdani42/nvim-tree.lua
+vim.opt.termguicolors = true
 require("nvim-tree").setup(
 {
   -- 自动关闭
   -- auto_close = false,
   -- 视图
   view = {
-    -- 宽度
     width = 25,
-    -- 高度
-    -- height = 30,
     -- 隐藏顶部的根目录显示
     hide_root_folder = false,
-    -- 自动调整大小
     -- auto_resize = true
+    adaptive_size = true,
   },
   diagnostics = {
     -- 是否启用文件诊断信息
@@ -59,7 +57,6 @@ vim.g.nvim_tree_icons = {
     symlink_open = ""
   }
 }
-
 -- 目录后加上反斜杠 /
 vim.g.nvim_tree_add_trailing = 1
 

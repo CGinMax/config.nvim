@@ -38,6 +38,27 @@ return packer.startup(
       require("plugin-config.nvim-lspconfig")
     end
   }
+  -- 通知
+  use {
+    "rcarriga/nvim-notify",
+    config = function()
+      require("plugin-config.nvim-notify")
+    end
+  }
+
+  use {
+    "williamboman/mason.nvim",
+    requires = {
+      {"hrsh7th/cmp-nvim-lsp"}, -- 替换内置 omnifunc，获得更多补全
+    },
+    -- after = { "neovim/nvim-lspconfig" }
+  }
+  use {
+    "williamboman/mason-lspconfig",
+    config = function()
+      require("plugin-config.mason-lspconfig")
+    end
+  }
   use {
     "williamboman/nvim-lsp-installer",
     config = function()
@@ -142,13 +163,6 @@ return packer.startup(
     end
   }
 
-  -- 通知
-  use {
-    "rcarriga/nvim-notify",
-    config = function()
-      require("plugin-config.nvim-notify")
-    end
-  }
 
   -- 显示缩进线
   use {
