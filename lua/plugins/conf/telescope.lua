@@ -4,8 +4,8 @@
 -- https://github.com/sharkdp/fd
 -- https://github.com/BurntSushi/ripgrep
 local ok, telescope = pcall(require, "telescope")
-if not ok then
-  vim.notify("not found telescope")
+if (not ok) then
+  require('nvim-telescope/telescope.nvim')
   return
 end
 local actions = require("telescope.actions")

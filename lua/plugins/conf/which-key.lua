@@ -1,10 +1,14 @@
+-- https://github.com/folke/which-key.nvim
 local ok, which_key = pcall(require, "which-key")
-if not ok then
-  vim.notify("not found which key")
+if (not ok) then
+  require('folke/which-key.nvim load failed!')
   return
 end
 
-local setup = {
+vim.o.timeout = true
+vim.o.timeout = 300
+
+which_key.setup({
   plugins = {
     marks = false, -- shows a list of your marks on ' and `
     registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -68,7 +72,7 @@ local setup = {
     i = { "j", "k" },
     v = { "j", "k" },
   },
-}
+})
 
 local opts = {
   mode = "n", -- NORMAL mode
@@ -82,43 +86,30 @@ local opts = {
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Welcome" },
   ["r"] = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-  -- ["b"] = {
-  --   "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-  --   "Buffers",
-  -- },
-  -- ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  -- ["w"] = { "<cmd>w!<CR>", "Save" },
-  -- ["q"] = { "<cmd>q!<CR>", "Quit" },
-  -- ["/"] = { "<cmd>lua require('Comment').toggle()<CR>", "Comment" },
+  ["w"] = { "<cmd>wa<CR>", "Save" },
+  ["q"] = { "<cmd>qa!<CR>", "Quit" },
   ["C"] = { "<cmd>%bd|e#<CR>", "Close Other Buffers" },
-  -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files()<cr>",
-    -- "<cmd>lua require('telescope').extensions.frecenncy.frecency(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
-    "Find files",
+  -- ["f"] = {
+  --   "<cmd>lua require('telescope.builtin').find_files()<cr>",
+  --   -- "<cmd>lua require('telescope').extensions.frecenncy.frecency(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+  --   "Find files",
+  -- },
+  ["F"] = {
+    "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw(require('telescope.themes').get_ivy())<cr>",
+    "Find Text",
   },
-  -- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  ["F"] = { "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw(require('telescope.themes').get_ivy())<cr>", "Find Text" },
   ["s"] = {
     "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>",
     "Find Document Symbols",
   },
   ["S"] = {
     "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>",
-    -- "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>",
     "Find Symobls",
   },
   ["p"] = { "<cmd>Telescope projects<cr>", "Projects" },
+  -- ["P"] = { "<cmd>SessionManager load_session<cr>", "Projects" },
 
-  ["P"] = { "<cmd>SessionManager load_session<cr>", "Projects" },
-
-  ["T"] = {
-    "<cmd>TroubleToggle<CR>", "Trouble Toggle"
-  },
-
-  ["o"] = {
-    "<cmd>AerialToggle<CR>", "Outline"
-  },
+  ["o"] = { "<cmd>AerialToggle<CR>", "Outline" },
   ["v"] = {
     "<cmd>lua require('telescope').extensions.neoclip.default(require('telescope.themes').get_ivy())<cr>",
     "Clipboard Manager"
@@ -143,25 +134,25 @@ local mappings = {
     E = { "<cmd>lua require'dapui'.eval(vim.fn.input '[Expression] > ')<cr>", "Evaluate Input" },
     X = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" },
     -- C = { "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>", "Conditional Breakpoint" },
+    -- S = { "<cmd>lua require'dap.ui.widgets'.scopes()<cr>", "Scopes" },
     T = { "<cmd>lua require'dapui'.toggle('sidebar')<cr>", "Toggle Sidebar" },
+    -- b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+    b = { "<cmd>lua require'dap'.toggle_breakpoint(); require'plugins.dap.dap-util'.store_breakpoints(true)<cr>", "Toggle Breakpoint" },
+    e = { "<cmd>lua require'dapui'.eval()<cr>", "Evaluate" },
     p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
     r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
     q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
-
+    i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
+    o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
+    u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
+    c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+    h = { "<cmd>lua require'dap.ui.widgets'.hover()<cr>", "Hover Variables" },
     -- b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
-    -- c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
     -- d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
-    -- e = { "<cmd>lua require'dapui'.eval()<cr>", "Evaluate" },
     -- g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
-    -- h = { "<cmd>lua require'dap.ui.widgets'.hover()<cr>", "Hover Variables" },
-    -- S = { "<cmd>lua require'dap.ui.widgets'.scopes()<cr>", "Scopes" },
-    -- i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
-    -- o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
-    -- t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
-    -- u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
   },
 
-  T = {
+  t = {
     name = "Trouble",
     t = { "<cmd>Trouble<cr>", "ToggleTrouble" },
     d = { "<cmd>Trouble document_diagnostics<cr>", "Document Diagnostics"},
@@ -170,20 +161,6 @@ local mappings = {
     u = { "<cmd>Trouble lsp_references<cr>", "Usage"},
     g = { "<cmd>Gitsigns setloclist<cr>", "Open changed hunk" },
   },
-
-  -- g = {
-  --   name = "Git",
-  --   b = { "<cmd>VGit buffer_gutter_blame_preview<cr>", "File Blame" },
-  --   d = { "<cmd>VGit buffer_diff_preview<cr>", "Diff File" },
-  --   D = { "<cmd>VGit project_diff_preview<cr>", "Diff Project" },
-  --   s = { "<cmd>VGit buffer_stage<cr>", "Stage File" },
-  --   u = { "<cmd>VGit buffer_unstage<cr>", "Unstage File" },
-  --   r = { "<cmd>VGit buffer_reset<cr>", "Reset File" },
-  --   f = { "<cmd>VGit buffer_history_preview <cr>", "Reset File" },
-  --
-  --   B = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-  --   c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-  -- },
 
   g = {
      name = "Git",
@@ -252,17 +229,6 @@ local mappings = {
     },
   },
 
-  -- h = {
-  --   a = { "<cmd>HSHighlight 1<cr>", "Hightlight 1" },
-  --   b = { "<cmd>HSHighlight 2<cr>", "Hightlight 2" },
-  --   c = { "<cmd>HSHighlight 3<cr>", "Hightlight 3" },
-  --   d = { "<cmd>HSHighlight 4<cr>", "Hightlight 4" },
-  --   e = { "<cmd>HSHighlight 5<cr>", "Hightlight 5" },
-  --   f = { "<cmd>HSHighlight 6<cr>", "Hightlight 6" },
-  --   u = { "<cmd>HSRmHighlight<cr>", "RemoveHighlight" },
-  --   U = { "<cmd>HSRmHighlight rm_all<cr>", "RemoveAllHighlight" },
-  -- },
-
   h = {
     name = "Help",
     -- b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -288,5 +254,4 @@ local mappings = {
   -- },
 }
 
-which_key.setup(setup)
 which_key.register(mappings, opts)

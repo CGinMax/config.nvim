@@ -1,7 +1,12 @@
 -- https://github.com/tami5/lspsaga.nvim
 
-require("lspsaga").setup(
-{
+local ok, lspsaga = pcall(require, 'lspsaga')
+if (not ok) then
+  require('tami5/lspsaga.nvim load failed')
+  return
+end
+
+lspsaga.setup({
   -- 提示边框样式：round、single、double
   border_style = "round",
   error_sign = " ",

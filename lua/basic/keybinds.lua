@@ -40,3 +40,11 @@ vim.keybinds.gmap("n", "<leader>tt", "<cmd>TroubleToggle workspace_diagnostics<C
 -- code action
 -- vim.keybinds.bmap(0, "n", "gx", "<cmd>Lspsaga code_action<cr>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", vim.keybinds.opts)
+
+-- hop
+vim.keybinds.gmap("n", "<leader>hw", ":HopWord<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>hww", ":HopWordMW<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>hc", ":HopChar2<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>hcc", ":HopChar2MW<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>hl", ":HopLine<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>hls", ":HopLineStart<CR>", vim.keybinds.opts)

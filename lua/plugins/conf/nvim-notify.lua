@@ -1,12 +1,12 @@
 -- https://github.com/rcarriga/nvim-notify
 
 local ok, notify = pcall(require, "notify")
-if not ok then
-  vim.notify("Notify module not found!")
+if (not ok) then
+  require('rcarriga/nvim-notify load failed!')
   return
 end
 
-local notify_opts = {
+notify.setup({
   -- 动画样式
   -- fade_in_slide_out
   -- fade
@@ -23,16 +23,15 @@ local notify_opts = {
     DEBUG = "",
     TRACE = "✎",
   },
-}
+})
 
 -- 如果是透明背景，则需要设置背景色
 if vim.g.background_transparency then
   notify_opts.background_colour = "#ffffff"
 end
 
-vim.notify = require("notify")
+vim.notify = notify
 
-vim.notify.setup(notify_opts)
 -- 使用案例：
 -- 信息、级别、标题
 -- 级别有：info、warn、error、debug、trace
@@ -40,9 +39,4 @@ vim.notify.setup(notify_opts)
 -- vim.notify("hello world", "info", {title = "info"})
 
 -- 显示历史弹窗记录
-vim.keybinds.gmap(
-"n",
-"<leader>fn",
-"<cmd>lua require('telescope').extensions.notify.notify()<CR>",
-vim.keybinds.opts
-)
+vim.keybinds.gmap( "n", "<leader>fn", "<cmd>lua require('telescope').extensions.notify.notify()<CR>", vim.keybinds.opts)

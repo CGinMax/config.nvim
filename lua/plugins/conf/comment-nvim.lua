@@ -1,6 +1,12 @@
 -- https://github.com/numToStr/Comment.nvim
 
-require("Comment").setup(
+local ok, comment_nvim = pcall(require, "Comment")
+if (not ok) then
+  require('utils').notifyError("numToStr/Comment.nvim load failed!")
+  return
+end
+
+comment_nvim.setup(
 {
   padding = true,
   ---LHS of toggle mappings in NORMAL + VISUAL mode

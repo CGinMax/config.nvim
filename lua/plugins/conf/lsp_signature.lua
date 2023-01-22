@@ -1,7 +1,11 @@
 -- https://github.com/ray-x/lsp_signature.nvim
+local ok, lsp_signature = pcall(require, "lsp_signature")
+if (not ok) then
+  require('ray-x/lsp_signature load failed!')
+  return
+end
 
-require("lsp_signature").setup(
-{
+lsp_signature.setup({
   bind = true,
   -- 边框样式
   handler_opts = {

@@ -1,5 +1,8 @@
-local status_ok, project = pcall(require, "project_nvim")
-if not status_ok then
+-- 
+
+local ok, project = pcall(require, "project_nvim")
+if (not ok) then
+  require('utils').notifyError('ahmedkhalf/project.nvim load failed!')
 	return
 end
 project.setup({
@@ -37,9 +40,9 @@ project.setup({
   datapath = vim.fn.stdpath("data"),
 })
 
-local tele_status_ok, telescope = pcall(require, "telescope")
-if not tele_status_ok then
-	return
+local ok, telescope = pcall(require, "telescope")
+if (not ok) then
+  require('utils').notifyError("project_nvim load telescope failed!")
+  return
 end
-
 telescope.load_extension('projects')

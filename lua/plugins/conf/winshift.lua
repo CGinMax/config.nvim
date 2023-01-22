@@ -1,6 +1,12 @@
 -- https://github.com/sindrets/winshift.nvim
 
-require("winshift").setup({
+local ok, winshift = pcall(require, 'winshift')
+if (not ok) then
+  require('utils').notifyError('sindrets/winshift load failed!')
+  return
+end
+
+winshift.setup({
   highlight_moving_win = true,  -- Highlight the window being moved
   focused_hl_group = "Visual",  -- The highlight group used for the moving window
   moving_win_options = {

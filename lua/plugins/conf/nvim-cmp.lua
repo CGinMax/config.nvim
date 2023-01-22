@@ -12,11 +12,14 @@
 
 local lspkind = require("lspkind")
 
-local cmp = require("cmp")
+local ok, cmp = pcall(require, 'cmp')
+if (not ok) then
+  require('hrsh7th/nvim-cmp load failed!')
+  return
+end
 
-cmp.setup(
----@diagnostic disable-next-line: redundant-parameter
-{
+  ---@diagnostic disable-next-line: redundant-parameter
+cmp.setup({
   -- 指定补全引擎
   snippet = {
     expand = function(args)
@@ -112,19 +115,14 @@ cmp.setup(
 )
 
 -- 命令行 / 模式提示
-cmp.setup.cmdline(
-"/",
-{
+cmp.setup.cmdline("/", {
   sources = {
     {name = "buffer"}
   }
-}
-)
+})
 
 -- 命令行 : 模式提示
-cmp.setup.cmdline(
-":",
-{
+cmp.setup.cmdline(":", {
   sources = cmp.config.sources(
   {
     {name = "path"}
@@ -133,5 +131,4 @@ cmp.setup.cmdline(
     {name = "cmdline"}
   }
   )
-}
-)
+})

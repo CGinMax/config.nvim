@@ -1,7 +1,12 @@
 -- https://github.com/akinsho/bufferline.nvim
 
-require("bufferline").setup(
-{
+local ok, bufferline = pcall(require, 'bufferline')
+if (not ok) then
+  require('utils').notifyError('akinsho/bufferline load failed!')
+  return
+end
+
+bufferline.setup({
   options = {
     -- 为每个 buffer 都配置一个序数
     numbers = "ordinal",
@@ -80,9 +85,9 @@ require("bufferline").setup(
 -- 关闭当前 buffer，由 bufdelete 插件所提供的方法
 vim.keybinds.gmap("n", "<C-q>", "<cmd>Bdelete!<CR>", vim.keybinds.opts)
 -- 切换上一个缓冲区
-vim.keybinds.gmap("n", "tn", ":BufferLineCycleNext<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "t]", ":BufferLineCycleNext<CR>", vim.keybinds.opts)
 -- 切换下一个缓冲区
-vim.keybinds.gmap("n", "tp", ":BufferLineCyclePrev<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "t[", ":BufferLineCyclePrev<CR>", vim.keybinds.opts)
 -- 关闭左侧缓冲区
 vim.keybinds.gmap("n", "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", vim.keybinds.opts)
 -- 关闭右侧缓冲区
@@ -97,4 +102,5 @@ vim.keybinds.gmap("n", "t6", ":BufferLineGoToBuffer 6<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "t7", ":BufferLineGoToBuffer 7<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "t8", ":BufferLineGoToBuffer 8<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "t9", ":BufferLineGoToBuffer 9<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "t$", ":BufferLineGoToBuffer -1<CR>", vim.keybinds.opts)
 

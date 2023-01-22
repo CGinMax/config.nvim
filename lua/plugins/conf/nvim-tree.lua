@@ -1,7 +1,12 @@
 -- https://github.com/kyazdani42/nvim-tree.lua
+local ok, nvim_tree = pcall(require, "nvim-tree")
+if (not ok) then
+  require('utils').notifyError("kyazdani42/nvim-tree.lua load failed!")
+  return
+end
+
 vim.opt.termguicolors = true
-require("nvim-tree").setup(
-{
+nvim_tree.setup({
   -- 自动关闭
   -- auto_close = false,
   -- 视图
@@ -11,6 +16,24 @@ require("nvim-tree").setup(
     hide_root_folder = false,
     -- auto_resize = true
     adaptive_size = true,
+    float = {
+      enable = true,
+      quit_on_focus_loss = true,
+      open_win_config = {
+        relative = "editor",
+        border = "rounded",
+        width = 30,
+        height = 30,
+        row = 1,
+        col = 1,
+      },
+    },
+  },
+  sync_root_with_cwd = true,
+  respect_buf_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_root = true,
   },
   diagnostics = {
     -- 是否启用文件诊断信息
