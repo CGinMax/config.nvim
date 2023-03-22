@@ -21,7 +21,7 @@ dapui.setup({
       elements = {
         'scopes',
       },
-      size = 40,
+      size = 20,
       position = 'left',
     },
     {
@@ -30,7 +30,7 @@ dapui.setup({
         'breakpoints',
         'watches',
       },
-      size = 40,
+      size = 20,
       position = 'right',
     },
     {

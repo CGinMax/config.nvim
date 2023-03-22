@@ -1,18 +1,45 @@
 local dap = require('dap')
 
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "ccppr_vsc/"
+local lldb_dbg_path = require("dap-install.config.settings").options["installation_path"] .. "vscode-lldb/"
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = "executable",
   command = dbg_path .. "extension/debugAdapters/bin/OpenDebugAD7",
 }
+dap.adapters.lldb = {
+  id = 'lldb',
+  name = 'lldb',
+  type = "executable",
+  command = lldb_dbg_path .. "extension/lldb/bin/lldb",
+}
 dap.configurations.cpp = {
   -- launch exe
   {
-    name = "Launch file",
+    name = "GDB Launch file",
     type = "cppdbg",
     request = "launch",
-    miDebuggerPath = '/usr/bin/lldb', cwd = '${workspaceFolder}',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    args = function()
+      local input = vim.fn.input("Input args: ")
+      return require("plugins.dap.dap-util").str2argtable(input)
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = true,
+    setupCommands = {
+      {
+        description = 'enable pretty printing',
+        text = '-enable-pretty-printing',
+        ignoreFailures = false
+      },
+    },
+  },
+  {
+    name = "LLDB Launch file",
+    type = "lldb",
+    request = "launch",
     program = function()
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
