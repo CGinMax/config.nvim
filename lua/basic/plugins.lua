@@ -87,9 +87,9 @@ return lazy.setup({
   "jay-babu/mason-nvim-dap.nvim",
   { "jbyuki/one-small-step-for-vimkind", module = "osv" }, -- debug any Lua code running in a Neovim instance
   -- nvim-web-devicons
-  "kyazdani42/nvim-web-devicons",
+  "nvim-tree/nvim-web-devicons",
   -- nvim-tree
-  "kyazdani42/nvim-tree.lua",
+  "nvim-tree/nvim-tree.lua",
 
   -- gitsigns: git信息
   "lewis6991/gitsigns.nvim",
@@ -191,4 +191,5 @@ return lazy.setup({
       require"hop".setup { keys = "etovxqpdygfblzhckisuran" }
     end
   },
+
 })

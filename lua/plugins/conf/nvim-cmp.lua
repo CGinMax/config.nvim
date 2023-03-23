@@ -41,16 +41,14 @@ cmp.setup({
   ),
   -- 格式化补全菜单
   formatting = {
-    format = lspkind.cmp_format(
-    {
+    format = lspkind.cmp_format({
       with_text = true,
       maxwidth = 50,
       before = function(entry, vim_item)
         vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
         return vim_item
       end
-    }
-    )
+    })
   },
   -- 对补全建议排序
   sorting = {
@@ -123,12 +121,11 @@ cmp.setup.cmdline("/", {
 
 -- 命令行 : 模式提示
 cmp.setup.cmdline(":", {
-  sources = cmp.config.sources(
-  {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
     {name = "path"}
   },
   {
     {name = "cmdline"}
-  }
-  )
+  })
 })

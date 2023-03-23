@@ -1,18 +1,15 @@
--- https://github.com/kyazdani42/nvim-tree.lua
+-- https://github.com/nvim-tree/nvim-tree.lua
 local ok, nvim_tree = pcall(require, "nvim-tree")
 if (not ok) then
-  require('utils').notifyError("kyazdani42/nvim-tree.lua load failed!")
+  require('utils').notifyError("nvim-tree/nvim-tree.lua load failed!")
   return
 end
 
 vim.opt.termguicolors = true
 nvim_tree.setup({
-  -- 自动关闭
   -- auto_close = false,
-  -- 视图
   view = {
     width = 25,
-    -- 隐藏顶部的根目录显示
     hide_root_folder = false,
     -- auto_resize = true
     adaptive_size = true,
@@ -29,17 +26,21 @@ nvim_tree.setup({
     --   },
     -- },
   },
+  hijack_directories = {
+    enable = true,
+    auto_open = true,
+  },
   sync_root_with_cwd = true,
   respect_buf_cwd = true,
   update_focused_file = {
     enable = true,
-    update_root = true,
+    update_root = false,
   },
   notify = {
     threshold = vim.log.levels.ERROR,
   },
   diagnostics = {
-    -- 是否启用文件诊断信息
+    -- enable file diagnostics information
     enable = true,
     icons = {
       hint = "",
@@ -49,7 +50,6 @@ nvim_tree.setup({
     }
   },
   git = {
-    -- 是否启用 git 信息
     enable = true,
     ignore = true,
     timeout = 500
@@ -57,7 +57,7 @@ nvim_tree.setup({
 }
 )
 
--- 默认图标，可自行修改
+-- default icon
 vim.g.nvim_tree_icons = {
   default = " ",
   symlink = " ",

@@ -64,6 +64,7 @@ mason_lspconfig.setup_handlers({
   end,
   ["tsserver"] = function()
     lspconfig.tsserver.setup({
+      capabilities = cmp_capabilities,
       filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" }
     })
   end

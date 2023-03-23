@@ -3,7 +3,7 @@ vim.o.encoding = "utf-8"
 -- 设定在无操作时，交换文件刷写到磁盘的等待毫秒数（默认为 4000）
 vim.o.updatetime = 100
 -- 设定等待按键时长的毫秒数
-vim.o.timeoutlen = 500
+vim.o.timeoutlen = 300
 -- 是否在屏幕最后一行显示命令
 vim.o.showcmd = true
 -- 是否允许缓冲区未保存时就切换
@@ -63,4 +63,4 @@ vim.o.tabstop = 2
 -- tab 和 space 的混合，和上面 2 个设置成相同即可
 vim.o.softtabstop = 2
 -- 取消自动注释，当前行是 -- 注释时，按下 CR 或者 o 默认会自动注释下一行，所以这里取消了
--- vim.opt_local.formatoptions = vim.opt_local.formatoptions - {"c", "r", "o"}
+-- vim.o.formatoptions = vim.o.formatoptions - {"c", "r", "o"}

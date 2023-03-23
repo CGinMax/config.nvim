@@ -125,3 +125,5 @@ vim.keybinds.gmap("n", "<leader>hc", ":HopChar2<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<leader>hcc", ":HopChar2MW<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<leader>hl", ":HopLine<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<leader>hls", ":HopLineStart<CR>", vim.keybinds.opts)
+
+vim.keybinds.gmap("n", "<leader>so", ":luafile %<CR>", {noremap = true, silent = true})
