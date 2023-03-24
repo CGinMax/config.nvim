@@ -9,7 +9,7 @@ litee_lib.setup({
   tree = {
     icon_set = "codicons"
   },
-  lsp {},
+  lsp = {},
   panel = {
     orientation = "left",
     panel_size  = 50
