@@ -7,8 +7,13 @@ if (not ok) then
 end
 
 hover.setup({
-  init = function ()
+  init = function()
     require('hover.providers.lsp')
+    -- require('hover.providers.gh')
+    -- require('hover.providers.gh_user')
+    -- require('hover.providers.jira')
+    -- require('hover.providers.man')
+    -- require('hover.providers.dictionary')
   end,
   preview_opts = {
     border = nil
@@ -16,6 +21,3 @@ hover.setup({
   preview_window = true,
   title = true,
 })
--- Setup keymaps
-vim.keymap.set("n", "K", require("hover").hover, {desc = "hover.nvim"})
-vim.keymap.set("n", "gK", require("hover").hover_select, {desc = "hover.nvim (select)"})

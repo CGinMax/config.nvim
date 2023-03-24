@@ -1,12 +1,12 @@
-vim.g.mapleader=";"
-vim.g.maplocalleader=";"
+vim.g.mapleader = ";"
+vim.g.maplocalleader = ";"
 
-vim.keybinds={
+vim.keybinds = {
   gmap = vim.api.nvim_set_keymap,
   bmap = vim.api.nvim_buf_set_keymap,
   dgmap = vim.api.nvim_del_keymap,
   dbmap = vim.api.nvim_buf_del_keymap,
-  opts = {noremap=true, silent = true}
+  opts = { noremap = true, silent = true }
 }
 
 -- 重新修改跳转到头和尾
@@ -24,8 +24,6 @@ vim.keybinds.gmap("n", "<C-l>", "<C-w>l", vim.keybinds.opts)
 -- nvim-tree
 -- 按 leader 1 打开文件树
 vim.keybinds.gmap("n", "<leader>1", "<cmd>NvimTreeToggle<CR>", vim.keybinds.opts)
--- 按 leader fc 在文件树中找到当前以打开文件的位置
-vim.keybinds.gmap("n", "<leader>fc", "<cmd>NvimTreeFindFile<CR>", vim.keybinds.opts)
 
 -- 默认按键
 -- o     ：打开目录或文件
@@ -54,9 +52,9 @@ vim.keybinds.gmap("n", "<leader>fc", "<cmd>NvimTreeFindFile<CR>", vim.keybinds.o
 -- 关闭当前 buffer，由 bufdelete 插件所提供的方法
 vim.keybinds.gmap("n", "<C-q>", "<cmd>Bdelete!<CR>", vim.keybinds.opts)
 -- 切换上一个缓冲区
-vim.keybinds.gmap("n", "t]", ":BufferLineCycleNext<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "tl", ":BufferLineCycleNext<CR>", vim.keybinds.opts)
 -- 切换下一个缓冲区
-vim.keybinds.gmap("n", "t[", ":BufferLineCyclePrev<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "th", ":BufferLineCyclePrev<CR>", vim.keybinds.opts)
 -- 关闭左侧缓冲区
 vim.keybinds.gmap("n", "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", vim.keybinds.opts)
 -- 关闭右侧缓冲区
@@ -80,10 +78,13 @@ vim.keybinds.gmap("n", "t$", ":BufferLineGoToBuffer -1<CR>", vim.keybinds.opts)
 -- 示例：
 -- vim.notify("hello world", "info", {title = "info"})
 -- 显示历史弹窗记录
-vim.keybinds.gmap( "n", "<leader>fn", "<cmd>lua require('telescope').extensions.notify.notify()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>fn", "<cmd>lua require('telescope').extensions.notify.notify()<CR>", vim.keybinds.opts)
 
 -- winshift
-vim.keybinds.gmap("n", "<C-W>m", ":WinShift<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-w>m", ":WinShift<CR>", vim.keybinds.opts)
+
+-- aerial
+vim.keybinds.gmap("n", "<F1>", ":AerialToggle<CR>", vim.keybinds.opts)
 
 -- Resize with arrows
 vim.keybinds.gmap("n", "<C-Up>", ":resize -2<CR>", vim.keybinds.opts)
@@ -92,8 +93,13 @@ vim.keybinds.gmap("n", "<C-Left>", ":vertical resize -2<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<C-Right>", ":vertical resize +2<CR>", vim.keybinds.opts)
 
 -- Move tetx up and down
+-- BUG: unuse for mac
 vim.keybinds.gmap("n", "<A-j>", "<Esc>:m .+1<CR>==gi<Esc>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<A-k>", "<Esc>:m .-2<CR>==gi<Esc>", vim.keybinds.opts)
+
+-- Setup keymaps
+vim.keybinds.gmap("n", "K", ':lua require("hover").hover()<CR>', vim.keybinds.opts)
+vim.keybinds.gmap("n", "gK", ':lua require("hover").hover_select()<CR>', vim.keybinds.opts)
 
 -- Telescope
 -- 查找文件
@@ -126,4 +132,8 @@ vim.keybinds.gmap("n", "<leader>hcc", ":HopChar2MW<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<leader>hl", ":HopLine<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<leader>hls", ":HopLineStart<CR>", vim.keybinds.opts)
 
-vim.keybinds.gmap("n", "<leader>so", ":luafile %<CR>", {noremap = true, silent = true})
+-- vim.keybinds.gmap("n", "<leader>k", ':lua require("lsp_signature").toggle_float_win()<CR>', vim.keybinds.opts)
+
+vim.keybinds.gmap("n", "<leader>so", ":luafile %<CR>", vim.keybinds.opts)
+
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

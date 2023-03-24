@@ -13,30 +13,12 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
--- vim.cmd [[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost plugins.lua source <afile> | PackerSync
---   augroup end
--- ]]
 
 local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
   print("folke/lazy.nvim load failed!")
   return
 end
-
--- packer.init({
---     display = {
---         open_fn = function()
---             return require("packer.util").float({ border = "rounded" })
---         end,
---     },
---     profile = {
---       enable = true,
---       threshold = 1
---     }
--- })
 
 return lazy.setup({
   -- lsp
@@ -47,13 +29,13 @@ return lazy.setup({
   {
     "williamboman/mason.nvim",
     dependencies = {
-      {"hrsh7th/cmp-nvim-lsp"}, -- 替换内置 omnifunc，获得更多补全
+      { "hrsh7th/cmp-nvim-lsp" }, -- 替换内置 omnifunc，获得更多补全
     },
   },
   "williamboman/mason-lspconfig",
   --[[
   "williamboman/nvim-lsp-installer",
-  ]]--
+  ]] --
   "simrat39/rust-tools.nvim",
   "tami5/lspsaga.nvim",
   -- lsp_signature:插入模式传参提示
@@ -115,30 +97,30 @@ return lazy.setup({
     "nvim-telescope/telescope.nvim",
     dependencies = {
       -- required
-      "nvim-lua/plenary.nvim", -- Lua开发模块
+      "nvim-lua/plenary.nvim",                       -- Lua开发模块
       -- options
-      "BurntSushi/ripgrep", -- 文字查找
-      "sharkdp/fd", -- 文本查找
+      "BurntSushi/ripgrep",                          -- 文字查找
+      "sharkdp/fd",                                  -- 文本查找
       "nvim-telescope/telescope-live-grep-raw.nvim", -- 搜索预览
-      "nvim-telescope/telescope-ui-select.nvim", -- ui-select
-      "nvim-telescope/telescope-dap.nvim", -- dap
+      "nvim-telescope/telescope-ui-select.nvim",     -- ui-select
+      "nvim-telescope/telescope-dap.nvim",           -- dap
     },
   },
 
   -- 自动代码补全系列插件
   {
-    "hrsh7th/nvim-cmp",  -- 代码补全核心插件，下面都是增强补全的体验插件
+    "hrsh7th/nvim-cmp",                       -- 代码补全核心插件，下面都是增强补全的体验插件
     dependencies = {
-      {"onsails/lspkind-nvim"}, -- 为补全添加类似 vscode 的图标
-      {"hrsh7th/vim-vsnip"}, -- vsnip 引擎，用于获得代码片段支持
-      {"hrsh7th/cmp-vsnip"}, -- 适用于 vsnip 的代码片段源
-      {"hrsh7th/cmp-nvim-lsp"}, -- 替换内置 omnifunc，获得更多补全
-      {"hrsh7th/cmp-path"}, -- 路径补全
-      {"hrsh7th/cmp-buffer"}, -- 缓冲区补全
-      {"hrsh7th/cmp-cmdline"}, -- 命令补全
-      {"f3fora/cmp-spell"}, -- 拼写建议
-      {"rafamadriz/friendly-snippets"}, -- 提供多种语言的代码片段
-      {"lukas-reineke/cmp-under-comparator"}, -- 让补全结果的排序更加智能
+      { "onsails/lspkind-nvim" },             -- 为补全添加类似 vscode 的图标
+      { "hrsh7th/vim-vsnip" },                -- vsnip 引擎，用于获得代码片段支持
+      { "hrsh7th/cmp-vsnip" },                -- 适用于 vsnip 的代码片段源
+      { "hrsh7th/cmp-nvim-lsp" },             -- 替换内置 omnifunc，获得更多补全
+      { "hrsh7th/cmp-path" },                 -- 路径补全
+      { "hrsh7th/cmp-buffer" },               -- 缓冲区补全
+      { "hrsh7th/cmp-cmdline" },              -- 命令补全
+      { "f3fora/cmp-spell" },                 -- 拼写建议
+      { "rafamadriz/friendly-snippets" },     -- 提供多种语言的代码片段
+      { "lukas-reineke/cmp-under-comparator" }, -- 让补全结果的排序更加智能
       -- {"tzachar/cmp-tabnine", run = "./install.sh"} -- tabnine 源,提供基于 AI 的智能补全
     }
   },
@@ -174,6 +156,8 @@ return lazy.setup({
   -- litee: 调用查询
   "ldelossa/litee.nvim",
   "ldelossa/litee-calltree.nvim",
+  "ldelossa/litee-symboltree.nvim",
+  "ldelossa/litee-filetree.nvim",
   -- trouble: 错误显示
   "folke/trouble.nvim",
 
@@ -188,7 +172,7 @@ return lazy.setup({
     branch = "v2", -- optional but strongly recommended
     config = function()
       -- you can configure Hop the way you like here; see :h hop-config
-      require"hop".setup { keys = "etovxqpdygfblzhckisuran" }
+      require "hop".setup { keys = "etovxqpdygfblzhckisuran" }
     end
   },
 
