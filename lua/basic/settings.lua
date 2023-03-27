@@ -3,7 +3,7 @@ vim.o.encoding = "utf-8"
 -- 设定在无操作时，交换文件刷写到磁盘的等待毫秒数（默认为 4000）
 vim.o.updatetime = 100
 -- 设定等待按键时长的毫秒数
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 500
 -- 是否在屏幕最后一行显示命令
 vim.o.showcmd = true
 -- 是否允许缓冲区未保存时就切换

@@ -8,7 +8,7 @@ local function config_dapi_and_sign()
 
   local dap_breakpoint = {
     error = {
-      text = "🛑",
+      text = "",
       texthl = "LspDiagnosticsSignError",
       linehl = "",
       numhl = "",
@@ -20,7 +20,7 @@ local function config_dapi_and_sign()
       numhl = "",
     },
     stopped = {
-      text = "⭐️",
+      text = "",
       texthl = "LspDiagnosticsSignInformation",
       linehl = "DiagnosticUnderlineInfo",
       numhl = "LspDiagnosticsSignInformation",
@@ -33,14 +33,14 @@ local function config_dapi_and_sign()
 end
 
 local function config_dapui()
-  local dap, dapui = require("dap"), require("dapui")
+  local dap, dapui                                      = require("dap"), require("dapui")
 
-  local debug_open = function()
+  local debug_open                                      = function()
     dapui.open()
     vim.api.nvim_command("DapVirtualTextEnable")
     vim.api.nvim_command("NvimTreeClose")
   end
-  local debug_close = function()
+  local debug_close                                     = function()
     dap.repl.close()
     dapui.close()
     vim.api.nvim_command("DapVirtualTextDisable")
@@ -62,11 +62,11 @@ local function config_dapui()
 end
 
 local function config_debuggers()
-  local dap = require ("dap")
+  local dap = require("dap")
   -- TODO: wait dap-ui for fixing temrinal layout
   -- the "30" of "30vsplit: doesn't work
   -- dap.defaults.fallback.terminal_win_cmd = '30vsplit new' -- this will be overrided by dapui
-  dap.set_log_level("DEBUG")
+  dap.set_log_level("INFO")
 
   -- load from json file
   require('dap.ext.vscode').load_launchjs(nil, { cppdbg = { 'cpp' } })

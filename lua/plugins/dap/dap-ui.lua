@@ -6,75 +6,65 @@ if (not ok) then
 end
 
 dapui.setup({
-  icons = { expanded = "▾", collapsed = "▸" },
+  icons = { expanded = "▾", collapsed = "▸", circular = "" },
   mappings = {
     -- Use a table to apply multiple mappings
-    expand = { "o", "<2-LeftMouse>", "<CR>" },
-    open = "O",
+    expand = { "<2-LeftMouse>", "<CR>" },
+    open = "o",
     remove = "d",
     edit = "e",
     repl = "r",
     toggle = "t",
   },
+  -- Use this to override mappings for specific elements
+  element_mappings = {},
+  expand_lines = true,
   layouts = {
     {
       elements = {
-        'scopes',
+        { id = "scopes",      size = 0.33 },
+        { id = "breakpoints", size = 0.17 },
+        { id = "stacks",      size = 0.25 },
+        { id = "watches",     size = 0.25 },
       },
-      size = 20,
-      position = 'left',
+      size = 0.33,
+      position = "right",
     },
     {
       elements = {
-        -- 'stacks',
-        'breakpoints',
-        'watches',
+        { id = "repl",    size = 0.45 },
+        { id = "console", size = 0.55 },
       },
-      size = 20,
-      position = 'right',
-    },
-    {
-      elements = {
-        'console',
-      },
-      size = 5,
-      position = 'top',
-    },
-    {
-      elements = {
-        'repl',
-      },
-      size = 12,
-      position = 'bottom',
+      size = 0.27,
+      position = "bottom",
     },
   },
-  -- sidebar = {
-  --   -- You can change the order of elements in the sidebar
-  --   elements = {
-  --     -- Provide as ID strings or tables with "id" and "size" keys
-  --     {
-  --       id = "scopes",
-  --       size = 0.35, -- Can be float or integer > 1
-  --     },
-  --     { id = "stacks", size = 0.35 },
-  --     { id = "watches", size = 0.15 },
-  --     { id = "breakpoints", size = 0.15 },
-  --   },
-  --   size = 40,
-  --   position = "left", -- Can be "left", "right", "top", "bottom"
-  -- },
-  -- tray = {
-  --   elements = { "repl" },
-  --   size = 5,
-  --   position = "bottom", -- Can be "left", "right", "top", "bottom"
-  -- },
+  controls = {
+    enabled = true,
+    -- Display controls in this element
+    element = "repl",
+    icons = {
+      pause = "",
+      play = "",
+      step_into = "",
+      step_over = "",
+      step_out = "",
+      step_back = "",
+      run_last = "",
+      terminate = "",
+    },
+  },
   floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil, -- Floats will be treated as percentage of your screen.
-    border = "single", -- Border style. Can be "single", "double" or "rounded"
+    max_height = 0.9,
+    max_width = 0.5, -- Floats will be treated as percentage of your screen.
+    border = "rounded",
     mappings = {
       close = { "q", "<Esc>" },
     },
   },
   windows = { indent = 1 },
+  render = {
+    max_type_length = nil, -- Can be integer or nil.
+    max_value_lines = 100, -- Can be integer or nil.
+  },
 })

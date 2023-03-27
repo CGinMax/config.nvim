@@ -13,7 +13,7 @@ vim.keybinds = {
 vim.keybinds.gmap("n", "H", "^", vim.keybinds.opts)
 vim.keybinds.gmap("n", "L", "$", vim.keybinds.opts)
 vim.keybinds.gmap("v", "H", "^", vim.keybinds.opts)
-vim.keybinds.gmap("v", "H", "^", vim.keybinds.opts)
+vim.keybinds.gmap("v", "L", "$", vim.keybinds.opts)
 
 
 vim.keybinds.gmap("n", "<C-h>", "<C-w>h", vim.keybinds.opts)
@@ -52,24 +52,24 @@ vim.keybinds.gmap("n", "<leader>1", "<cmd>NvimTreeToggle<CR>", vim.keybinds.opts
 -- 关闭当前 buffer，由 bufdelete 插件所提供的方法
 vim.keybinds.gmap("n", "<C-q>", "<cmd>Bdelete!<CR>", vim.keybinds.opts)
 -- 切换上一个缓冲区
-vim.keybinds.gmap("n", "tl", ":BufferLineCycleNext<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "tl", "<cmd>BufferLineCycleNext<CR>", vim.keybinds.opts)
 -- 切换下一个缓冲区
-vim.keybinds.gmap("n", "th", ":BufferLineCyclePrev<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "th", "<cmd>BufferLineCyclePrev<CR>", vim.keybinds.opts)
 -- 关闭左侧缓冲区
 vim.keybinds.gmap("n", "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", vim.keybinds.opts)
 -- 关闭右侧缓冲区
 vim.keybinds.gmap("n", "<leader>bl", "<cmd>BufferLineCloseRight<CR>", vim.keybinds.opts)
 
-vim.keybinds.gmap("n", "t1", ":BufferLineGoToBuffer 1<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t2", ":BufferLineGoToBuffer 2<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t3", ":BufferLineGoToBuffer 3<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t4", ":BufferLineGoToBuffer 4<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t5", ":BufferLineGoToBuffer 5<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t6", ":BufferLineGoToBuffer 6<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t7", ":BufferLineGoToBuffer 7<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t8", ":BufferLineGoToBuffer 8<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t9", ":BufferLineGoToBuffer 9<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "t$", ":BufferLineGoToBuffer -1<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "t1", "<cmd>BufferLineGoToBuffer 1<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "t2", "<cmd>BufferLineGoToBuffer 2<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "t3", "<cmd>BufferLineGoToBuffer 3<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "t4", "<cmd>BufferLineGoToBuffer 4<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "t5", "<cmd>BufferLineGoToBuffer 5<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "t6", "<cmd>BufferLineGoToBuffer 6<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "t7", "<cmd>BufferLineGoToBuffer 7<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "t8", "<cmd>BufferLineGoToBuffer 8<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "t9", "<cmd>BufferLineGoToBuffer 9<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "t$", "<cmd>BufferLineGoToBuffer -1<CR>", vim.keybinds.opts)
 
 -- notify
 -- 使用案例：
@@ -81,25 +81,29 @@ vim.keybinds.gmap("n", "t$", ":BufferLineGoToBuffer -1<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<leader>fn", "<cmd>lua require('telescope').extensions.notify.notify()<CR>", vim.keybinds.opts)
 
 -- winshift
-vim.keybinds.gmap("n", "<C-w>m", ":WinShift<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-w>m", "<cmd>WinShift<CR>", vim.keybinds.opts)
 
 -- aerial
-vim.keybinds.gmap("n", "<F1>", ":AerialToggle<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<F1>", "<cmd>AerialToggle<CR>", vim.keybinds.opts)
 
 -- Resize with arrows
-vim.keybinds.gmap("n", "<C-Up>", ":resize -2<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<C-Down>", ":resize +2<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<C-Left>", ":vertical resize -2<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<C-Right>", ":vertical resize +2<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-Up>", "<cmd>resize -2<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-Down>", "<cmd>resize +2<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-Left>", "<cmd>vertical resize -2<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", vim.keybinds.opts)
 
 -- Move tetx up and down
 -- BUG: unuse for mac
-vim.keybinds.gmap("n", "<A-j>", "<Esc>:m .+1<CR>==gi<Esc>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<A-k>", "<Esc>:m .-2<CR>==gi<Esc>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<A-j>", "<Esc><cmd>m .+1<CR>==gi<Esc>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<A-k>", "<Esc><cmd>m .-2<CR>==gi<Esc>", vim.keybinds.opts)
 
 -- Setup keymaps
-vim.keybinds.gmap("n", "K", ':lua require("hover").hover()<CR>', vim.keybinds.opts)
-vim.keybinds.gmap("n", "gK", ':lua require("hover").hover_select()<CR>', vim.keybinds.opts)
+vim.keybinds.gmap("n", "K", '<cmd>lua require("hover").hover()<CR>', vim.keybinds.opts)
+vim.keybinds.gmap("n", "gK", '<cmd>lua require("hover").hover_select()<CR>', vim.keybinds.opts)
+
+-- litee calltree
+vim.keybinds.gmap("n", "<C-R>", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-O>", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", vim.keybinds.opts)
 
 -- Telescope
 -- 查找文件
@@ -117,23 +121,27 @@ vim.keybinds.gmap("n", "<leader>fm", "<cmd>Telescope marks <CR>", vim.keybinds.o
 -- 查看工程
 vim.keybinds.gmap("n", "<leader>fp", "<cmd>Telescope projects <CR>", vim.keybinds.opts)
 
+-- lsp
+-- vim.keybinds.gmap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "gd", vim.lsp.buf.definition, vim.keybinds.opts)
+
 -- Trouble
 vim.keybinds.gmap("n", "<leader>tt", "<cmd>TroubleToggle workspace_diagnostics<CR>", vim.keybinds.opts)
 
 -- code action
--- vim.keybinds.bmap(0, "n", "gx", "<cmd>Lspsaga code_action<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", vim.keybinds.opts)
 
 -- hop
-vim.keybinds.gmap("n", "<leader>hw", ":HopWord<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>hww", ":HopWordMW<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>hc", ":HopChar2<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>hcc", ":HopChar2MW<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>hl", ":HopLine<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>hls", ":HopLineStart<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>hw", "<cmd>HopWord<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>hww", "<cmd>HopWordMW<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>hc", "<cmd>HopChar2<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>hcc", "<cmd>HopChar2MW<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>hl", "<cmd>HopLine<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>hls", "<cmd>HopLineStart<CR>", vim.keybinds.opts)
 
 -- vim.keybinds.gmap("n", "<leader>k", ':lua require("lsp_signature").toggle_float_win()<CR>', vim.keybinds.opts)
 
-vim.keybinds.gmap("n", "<leader>so", ":luafile %<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>so", "<cmd>luafile %<CR>", vim.keybinds.opts)
 
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

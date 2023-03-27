@@ -2,13 +2,13 @@
 -- https://github.com/williamboman/mason-lspconfig
 local ok, mason = pcall(require, "mason")
 if (not ok) then
-  vim.notify("williamboman/mason.nvim require error")
+  require('utils').notifyError('williamboman/mason.nvim load failed!')
   return
 end
 
 local ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 if (not ok) then
-  print("williamboman/mason-lspconfig require error")
+  require('utils').notifyError('williamboman/mason-lspconfig load failed!')
   return
 end
 
@@ -30,41 +30,41 @@ local servers = {
 
 local ok, lspconfig = pcall(require, "lspconfig")
 if (not ok) then
-  vim.notify("neovim/nvim-lspconfig require errror")
+  require('utils').notifyError('neovim/nvim-lspconfig load failed!')
   return
 end
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-	properties = { "documentation", "detail", "additionalTextEdits" },
-}
-
--- get rid of Multiple different client offset encodings detected for buffer
-local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-local clangd_capabilities = cmp_capabilities
-clangd_capabilities.textDocument.semanticHighlighting = true
-clangd_capabilities.offsetEncoding =  "utf-8" 
 
 mason.setup({
   ui = {
     border = "rounded"
   },
   log_level = vim.log.levels.INFO,
-  max_concurrent_installers = 4,
+  max_concurrent_installers = 6,
 })
 mason_lspconfig.setup({})
 mason_lspconfig.setup_handlers({
   function(server_name)
-    lspconfig[server_name].setup {}
+    lspconfig[server_name].setup {
+      on_attach = require("plugins.lsp.handlers").on_attach,
+    }
+  end,
+  ["cmake"] = function()
+    lspconfig.cmake.setup({
+      on_attach = require("plugins.lsp.handlers").on_attach,
+      capabilities = require("plugins.lsp.handlers").capabilities,
+      filetypes = { "CMakeLists.txt", "cmake" }
+    })
   end,
   ["clangd"] = function()
     lspconfig.clangd.setup({
-      capabilities = clangd_capabilities,
+      on_attach = require("plugins.lsp.handlers").on_attach,
+      capabilities = require("plugins.lsp.handlers").clangd_capabilities,
     })
   end,
   ["tsserver"] = function()
     lspconfig.tsserver.setup({
-      capabilities = cmp_capabilities,
+      on_attach = require("plugins.lsp.handlers").on_attach,
+      capabilities = require("plugins.lsp.handlers").capabilities,
       filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" }
     })
   end
