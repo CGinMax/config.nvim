@@ -1,7 +1,7 @@
 -- https://github.com/jose-elias-alvarez/null-ls.nvim
 local ok, null_ls = pcall(require, "null-ls")
 if (not ok) then
-  vim.notify("jose-elias-alvarez/null-ls.nvim load failed!")
+  require('utils').notifyError("jose-elias-alvarez/null-ls.nvim")
   return
 end
 

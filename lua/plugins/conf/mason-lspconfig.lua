@@ -48,13 +48,13 @@ mason_lspconfig.setup_handlers({
       on_attach = require("plugins.lsp.handlers").on_attach,
     }
   end,
-  ["cmake"] = function()
-    lspconfig.cmake.setup({
-      on_attach = require("plugins.lsp.handlers").on_attach,
-      capabilities = require("plugins.lsp.handlers").capabilities,
-      filetypes = { "CMakeLists.txt", "cmake" }
-    })
-  end,
+  -- ["cmake"] = function()
+  --   lspconfig.cmake.setup({
+  --     on_attach = require("plugins.lsp.handlers").on_attach,
+  --     capabilities = require("plugins.lsp.handlers").capabilities,
+  --     filetypes = { "CMakeLists.txt", "cmake" }
+  --   })
+  -- end,
   ["clangd"] = function()
     lspconfig.clangd.setup({
       on_attach = require("plugins.lsp.handlers").on_attach,
@@ -67,5 +67,5 @@ mason_lspconfig.setup_handlers({
       capabilities = require("plugins.lsp.handlers").capabilities,
       filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" }
     })
-  end
+  end,
 })
