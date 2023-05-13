@@ -99,107 +99,105 @@ return lazy.setup({
   -- null-ls:前端代码格式
   -- 'jose-elias-alvarez/null-ls.nvim',
   -- mason-null-ls
-  -- {
-    -- 	'jay-babu/mason-null-ls.nvim',
-    -- 	event = { 'BufReadPre', 'BufNewFile' },
-    -- 	dependencies = {
-      -- 		'williamboman/mason.nvim',
-      -- 		'jose-elias-alvarez/null-ls.nvim',
-      -- 	},
-      -- },
-      -- prettier:前端代码美化
+  {
+    'jay-babu/mason-null-ls.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
+    dependencies = {
+      'williamboman/mason.nvim',
+      'jose-elias-alvarez/null-ls.nvim',
+    },
+  },
+  -- prettier:前端代码美化
+  {
+    	'MunifTanjim/prettier.nvim',
+    	dependencies = {
+      		'neovim/nvim-lspconfig',
+      		'jose-elias-alvarez/null-ls.nvim',
+      	},
+      },
+      -- dap
+      -- 'ravenxrz/DAPInstall.nvim', -- help us install several debuggers
+      -- nvim-dap
+      -- 'mfussenegger/nvim-dap',
+      -- 'theHamsta/nvim-dap-virtual-text',
+      -- 'rcarriga/nvim-dap-ui',
+      -- 'jay-babu/mason-nvim-dap.nvim',
       -- {
-        -- 	'MunifTanjim/prettier.nvim',
-        -- 	dependencies = {
-          -- 		'neovim/nvim-lspconfig',
-          -- 		'jose-elias-alvarez/null-ls.nvim',
-          -- 	},
-          -- },
-          -- dap
-          -- 'ravenxrz/DAPInstall.nvim', -- help us install several debuggers
-          -- nvim-dap
-          -- 'mfussenegger/nvim-dap',
-          -- 'theHamsta/nvim-dap-virtual-text',
-          -- 'rcarriga/nvim-dap-ui',
-          -- 'jay-babu/mason-nvim-dap.nvim',
-          -- {
-            -- 	'jbyuki/one-small-step-for-vimkind', module = 'osv', -- debug any Lua code running in a Neovim instance
-            -- }
+        -- 	'jbyuki/one-small-step-for-vimkind', module = 'osv', -- debug any Lua code running in a Neovim instance
+        -- }
 
-            -- feline:状态栏美化
-            'feline-nvim/feline.nvim',
+        -- feline:状态栏美化
+        'feline-nvim/feline.nvim',
 
-            -- notification
-            'rcarriga/nvim-notify',
+        -- notification
+        'rcarriga/nvim-notify',
 
-            -- nvim-tree
-            'nvim-tree/nvim-tree.lua',
+        -- nvim-tree
+        'nvim-tree/nvim-tree.lua',
 
-            -- gitsigns: git信息
-            'lewis6991/gitsigns.nvim',
+        -- gitsigns: git信息
+        'lewis6991/gitsigns.nvim',
 
-            -- nvim-autopairs:括号自动补全
-            'windwp/nvim-autopairs',
-            -- nvim-surround: 自动前后插入括号
-            'kylechui/nvim-surround',
-            -- comment.nvim: 注释
-            'numToStr/Comment.nvim',
+        -- nvim-autopairs:括号自动补全
+        'windwp/nvim-autopairs',
+        -- nvim-surround: 自动前后插入括号
+        'kylechui/nvim-surround',
+        -- comment.nvim: 注释
+        'numToStr/Comment.nvim',
 
-            -- colorscheme
-            'folke/tokyonight.nvim',
+        -- colorscheme
+        'folke/tokyonight.nvim',
 
-            -- bufferline: 支持 LSP 状态的 buffer 栏
-            {
-              'akinsho/bufferline.nvim',
-              dependencies = {
-                {'famiu/bufdelete.nvim',  -- 删除 buffer 时不影响现有布局
-              }
-            },
-          },
+        -- bufferline: 支持 LSP 状态的 buffer 栏
+        {
+          'akinsho/bufferline.nvim',
+          dependencies = {
+            {'famiu/bufdelete.nvim',  -- 删除 buffer 时不影响现有布局
+          }
+        },
+      },
 
-          -- aerial.nvim: 代码大纲和快速导航
-          -- 'stevearc/aerial.nvim',
+      -- aerial.nvim: 代码大纲和快速导航
+      -- 'stevearc/aerial.nvim',
 
-          -- winshift: 重排窗口
-          -- 'sindrets/winshift.nvim',
+      -- winshift: 重排窗口
+      -- 'sindrets/winshift.nvim',
 
-          -- indent-blankline: 显示缩进线
-          'lukas-reineke/indent-blankline.nvim',
+      -- indent-blankline: 显示缩进线
+      'lukas-reineke/indent-blankline.nvim',
 
-          -- 显示网页色
-          'norcalli/nvim-colorizer.lua',
+      -- 显示网页色
+      'norcalli/nvim-colorizer.lua',
 
 
-          -- toggleterm: 终端
-          -- 'akinsho/toggleterm.nvim',
+      -- toggleterm: 终端
+      -- 'akinsho/toggleterm.nvim',
 
-          -- project: 工程管理
-          -- 'ahmedkhalf/project.nvim',
+      -- project: 工程管理
+      -- 'ahmedkhalf/project.nvim',
 
-          -- litee: 调用查询
-          -- 'ldelossa/litee.nvim',
-          -- 'ldelossa/litee-calltree.nvim',
-          -- 'ldelossa/litee-symboltree.nvim',
-          -- 'ldelossa/litee-filetree.nvim',
-          -- trouble: 错误显示
-          'folke/trouble.nvim',
+      -- litee: 调用查询
+      -- 'ldelossa/litee.nvim',
+      -- 'ldelossa/litee-calltree.nvim',
+      -- 'ldelossa/litee-symboltree.nvim',
+      -- 'ldelossa/litee-filetree.nvim',
+      -- trouble: 错误显示
+      'folke/trouble.nvim',
 
-          -- which key
-          -- 'folke/which-key.nvim',
-          -- alpha-nvim:启动界面
-          -- 'goolord/alpha-nvim',
-          -- neoclip: neovim剪切板管理
-          -- 'AckslD/nvim-neoclip.lua',
-          {
-            'phaazon/hop.nvim',
-            branch = 'v2', -- optional but strongly recommended
-            config = function()
-              -- you can configure Hop the way you like here; see :h hop-config
-              require('hop').setup({ keys = 'etovxqpdygfblzhckisuran' })
-            end,
-          },
-          -- vim-illuminate: 上下文高亮显示当前光标所在的内容
-          -- 'RRethy/vim-illuminate',
-          -- neovim-tasks: 构建任务(default cmake)
-          -- 'Shatur/neovim-tasks',
-        })
+      -- which key
+      'folke/which-key.nvim',
+      -- neoclip: neovim剪切板管理
+      -- 'AckslD/nvim-neoclip.lua',
+      {
+        'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+        config = function()
+          -- you can configure Hop the way you like here; see :h hop-config
+          require('hop').setup({ keys = 'etovxqpdygfblzhckisuran' })
+        end,
+      },
+      -- vim-illuminate: 上下文高亮显示当前光标所在的内容
+      'RRethy/vim-illuminate',
+      -- neovim-tasks: 构建任务(default cmake)
+      -- 'Shatur/neovim-tasks',
+    })

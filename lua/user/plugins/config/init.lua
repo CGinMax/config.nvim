@@ -5,7 +5,8 @@ M.setup = function()
   local config_path = vim.fn.stdpath('config') .. '/lua/user/plugins/config'
   -- plugins do not need to load, NOTE: no .lua suffix required
   local unload_plugins = {
-    "init", -- we don't need to load init again
+    'init', -- we don't need to load init again
+    -- 'prettier',
   }
 
   local unload_plugins_map = {}

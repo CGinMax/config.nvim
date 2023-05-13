@@ -1,12 +1,9 @@
 -- https://github.com/folke/which-key.nvim
 local ok, which_key = pcall(require, "which-key")
 if (not ok) then
-  require('utils').notify_error('folke/which-key.nvim load failed!')
+  require('user.utils').notify_error('folke/which-key.nvim load failed!')
   return
 end
-
-vim.o.timeout = true
-vim.o.timeout = 300
 
 which_key.setup({
   plugins = {
