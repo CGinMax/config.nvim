@@ -2,7 +2,7 @@
 
 local ok, neoclip = pcall(require, 'neoclip')
 if (not ok) then
-  require('utils').notifyError('AckslD/nvim-neoclip load failed!')
+  require('utils').notify_error('AckslD/nvim-neoclip load failed!')
   return
 end
 

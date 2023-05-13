@@ -1,2 +1,0 @@
---https://github.com/nvim-treesitter/nvim-treesitter
--- local status_ok, treesitter = pcall(require, "nvim-treesitter")

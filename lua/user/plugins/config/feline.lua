@@ -1,18 +1,18 @@
 -- https://github.com/feline-nvim/feline.nvim
 
-local ok, feline = pcall(require, "feline")
+local ok, feline = pcall(require, 'feline')
 if (not ok) then
-  require('utils').notifyError("feline-nvim/feline.nvim load failed!")
+  require('user.utils').notify_error('feline-nvim/feline.nvim load failed!')
   return
 end
-local ok, lsp = pcall(require, "feline.providers.lsp")
+local ok, lsp = pcall(require, 'feline.providers.lsp')
 if (not ok) then
-  require('utils').notifyError("feline.providers.lsp load failed!")
+  require('user.utils').notify_error('feline.providers.lsp load failed!')
   return
 end
 
-local vi_mode_utils = require("feline.providers.vi_mode")
--- local position = require("feline.providers.position")
+local vi_mode_utils = require('feline.providers.vi_mode')
+-- local position = require('feline.providers.position')
 local cursor = require('feline.providers.cursor')
 
 -- local colors = require 'theme.colors'

@@ -1,7 +1,7 @@
 -- https://github.com/folke/which-key.nvim
 local ok, which_key = pcall(require, "which-key")
 if (not ok) then
-  require('utils').notifyError('folke/which-key.nvim load failed!')
+  require('utils').notify_error('folke/which-key.nvim load failed!')
   return
 end
 

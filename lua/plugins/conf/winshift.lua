@@ -2,7 +2,7 @@
 
 local ok, winshift = pcall(require, 'winshift')
 if (not ok) then
-  require('utils').notifyError('sindrets/winshift load failed!')
+  require('utils').notify_error('sindrets/winshift load failed!')
   return
 end
 

@@ -2,7 +2,7 @@
 
 local ok, gitsigns = pcall(require, 'gitsigns')
 if (not ok) then
-  require('utils').notifyError('lewis6991/gitsigns.nvim load failed!')
+  require('utils').notify_error('lewis6991/gitsigns.nvim load failed!')
   return
 end
 

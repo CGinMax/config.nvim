@@ -2,7 +2,7 @@
 
 local ok, aerial = pcall(require, 'aerial')
 if (not ok) then
-  require('utils').notifyError('stevearc/aerial.nvim load failed!')
+  require('utils').notify_error('stevearc/aerial.nvim load failed!')
   return
 end
 -- require('telescope').load_extension('aerial')

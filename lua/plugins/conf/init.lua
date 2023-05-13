@@ -20,7 +20,7 @@ M.setup = function()
         local file = "plugins.conf." .. cut_suffix_filename
         local status_ok, result = pcall(require, file)
         if (not status_ok) then
-          --require('utils').notifyError("Failed Load " .. filename .. ", error:" .. result)
+          --require('utils').notify_error("Failed Load " .. filename .. ", error:" .. result)
         end
       end
     end

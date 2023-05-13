@@ -2,7 +2,7 @@
 
 local ok, colorizer = pcall(require, 'colorizer')
 if (not ok) then
-  require('utils').notifyError("norcalli/nvim-colorizer")
+  require('user.utils').notify_error("norcalli/nvim-colorizer load failed!")
   return
 end
 

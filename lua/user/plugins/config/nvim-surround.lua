@@ -2,7 +2,7 @@
 
 local ok, surround = pcall(require, 'nvim-surround')
 if (not ok) then
-  require('utils').notifyError("kylechui/nvim-surround load failed!")
+  require('user.utils').notify_error('kylechui/nvim-surround load failed!')
   return
 end
 --     Old text                    Command         New text

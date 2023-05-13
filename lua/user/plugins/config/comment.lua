@@ -2,7 +2,7 @@
 
 local ok, comment_nvim = pcall(require, "Comment")
 if (not ok) then
-  require('utils').notifyError("numToStr/Comment.nvim load failed!")
+  require('user.utils').notify_error("numToStr/Comment.nvim load failed!")
   return
 end
 

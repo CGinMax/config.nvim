@@ -2,7 +2,7 @@
 
 local ok, hover = pcall(require, 'hover')
 if (not ok) then
-  require('utils').notifyError("lewis6991/hover.nvim load failed!!")
+  require('utils').notify_error("lewis6991/hover.nvim load failed!!")
   return
 end
 

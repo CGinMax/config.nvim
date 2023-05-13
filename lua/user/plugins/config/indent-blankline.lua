@@ -2,19 +2,17 @@
 
 local ok, indent_blankline = pcall(require, 'indent_blankline')
 if (not ok) then
-  require('utils').notifyError('lukas-reineke/indent-blankline load failed!')
+  require('user.utils').notify_error('lukas-reineke/indent-blankline load failed!')
   return
 end
-vim.opt.termguicolors = true
+
 vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
-vim.opt.list = true
-vim.opt.listchars:append "space:⋅"
--- vim.opt.listchars:append "eol:↴"
+
 indent_blankline.setup({
   -- 显示当前所在区域
   show_current_context = true,
@@ -23,23 +21,22 @@ indent_blankline.setup({
   -- 显示行尾符
   show_end_of_line = true,
   show_trailing_blankline_indent = true,
-  space_char_blankline = " ",
+  space_char_blankline = ' ',
   char_highlight_list = {
-    "IndentBlanklineIndent1",
-    "IndentBlanklineIndent2",
-    "IndentBlanklineIndent3",
-    "IndentBlanklineIndent4",
-    "IndentBlanklineIndent5",
-    "IndentBlanklineIndent6",
+    'IndentBlanklineIndent1',
+    'IndentBlanklineIndent2',
+    'IndentBlanklineIndent3',
+    'IndentBlanklineIndent4',
+    'IndentBlanklineIndent5',
+    'IndentBlanklineIndent6',
   },
   filetype_exclude = {
-    "help",
-    "startify",
-    "dashboard",
-    "packer",
-    "neogitstatus",
-    "NvimTree",
-    "Trouble",
+    'help',
+    'startify',
+    'dashboard',
+    'packer',
+    'neogitstatus',
+    'NvimTree',
+    'Trouble',
   },
-}
-)
+})

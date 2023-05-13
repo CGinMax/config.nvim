@@ -1,7 +1,7 @@
 -- https://github.com/theHamsta/nvim-dap-virtual-text
 local ok, dap_virtual_text = pcall(require, "nvim-dap-virtual-text")
 if (not ok) then
-  require('utils').notifyError('theHamsta/nvim-dap-virtual-text load failed!')
+  require('utils').notify_error('theHamsta/nvim-dap-virtual-text load failed!')
   return
 end
 

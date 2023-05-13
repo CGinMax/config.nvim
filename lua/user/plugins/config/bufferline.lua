@@ -2,7 +2,7 @@
 
 local ok, bufferline = pcall(require, 'bufferline')
 if (not ok) then
-  require('utils').notifyError('akinsho/bufferline load failed!')
+  require('user.utils').notify_error('akinsho/bufferline load failed!')
   return
 end
 
@@ -18,9 +18,16 @@ bufferline.setup({
       style = "icon",
     },
     color_icons = true,
+    get_element_icon = function(element)
+      -- element consists of {filetype: string, path: string, extension: string, directory: string}
+      -- This can be used to change how bufferline fetches the icon
+      -- for an element e.g. a buffer or a tab.
+      -- e.g.
+      local icon, hl = require('nvim-web-devicons').get_icon_by_filetype(element.filetype, { default = false })
+      return icon, hl
+    end,
     show_buffer_icons = true, -- disable filetype icons for buffers
     show_buffer_close_icons = true,
-    show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
     show_close_icon = true,
     show_tab_indicators = true,
     show_duplicate_prefix = true, -- whether to show duplicate buffer prefix

@@ -1,17 +1,18 @@
 -- https://github.com/kosayoda/nvim-lightbulb
-local ok, lightbulb = pcall(require, "nvim-lightbulb")
+local ok, lightbulb = pcall(require, 'nvim-lightbulb')
 if (not ok) then
-  vim.notify("kosayoda/nvim-lightbulb")
+  require('user.utils').notify_error('kosayoda/nvim-lightbulb')
   return
 end
+
 vim.cmd([[autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()]])
 -- Showing defaults
-lightbulb.setup {
+lightbulb.setup({
   autocmd = {
     enabled = true,
   },
   -- LSP client names to ignore
-  -- Example: {"sumneko_lua", "null-ls"}
+  -- Example: {'sumneko_lua', 'null-ls'}
   ignore = {},
   sign = {
     enabled = true,
@@ -21,7 +22,7 @@ lightbulb.setup {
   float = {
     enabled = false,
     -- Text to show in the popup float
-    text = "💡",
+    text = '💡',
     -- Available keys for window options:
     -- - height     of floating window
     -- - width      of floating window
@@ -41,15 +42,15 @@ lightbulb.setup {
   virtual_text = {
     enabled = true,
     -- Text to show at virtual text
-    text = "💡",
+    text = '💡',
     -- highlight mode to use for virtual text (replace, combine, blend), see :help nvim_buf_set_extmark() for reference
-    hl_mode = "replace",
+    hl_mode = 'replace',
   },
   status_text = {
     enabled = false,
     -- Text to provide when code actions are available
-    text = "💡",
+    text = '💡',
     -- Text to provide when no actions are available
-    text_unavailable = ""
+    text_unavailable = ''
   }
-}
+})

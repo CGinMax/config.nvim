@@ -1,7 +1,7 @@
 -- https://github.com/Shatur/neovim-tasks
 local status_ok, tasks = pcall(require, "tasks")
 if (not status_ok) then
-  require('utils').notifyError('folke/which-key.nvim load failed!')
+  require('utils').notify_error('folke/which-key.nvim load failed!')
   return
 end
 

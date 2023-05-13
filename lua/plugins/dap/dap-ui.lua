@@ -1,7 +1,7 @@
 -- https://github.com/rcarriga/nvim-dap-ui
 local ok, dapui = pcall(require, 'dapui')
 if (not ok) then
-  require('utils').notifyError('rcarriga/nvim-dap-ui load failed!')
+  require('utils').notify_error('rcarriga/nvim-dap-ui load failed!')
   return
 end
 

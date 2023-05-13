@@ -2,7 +2,7 @@
 
 local ok, project = pcall(require, "project_nvim")
 if (not ok) then
-  require('utils').notifyError('ahmedkhalf/project.nvim load failed!')
+  require('utils').notify_error('ahmedkhalf/project.nvim load failed!')
 	return
 end
 project.setup({
@@ -42,7 +42,7 @@ project.setup({
 
 local ok, telescope = pcall(require, "telescope")
 if (not ok) then
-  require('utils').notifyError("project_nvim load telescope failed!")
+  require('utils').notify_error("project_nvim load telescope failed!")
   return
 end
 telescope.load_extension('projects')

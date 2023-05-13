@@ -1,11 +1,10 @@
 -- https://github.com/nvim-tree/nvim-tree.lua
-local ok, nvim_tree = pcall(require, "nvim-tree")
+local ok, nvim_tree = pcall(require, 'nvim-tree')
 if (not ok) then
-  require('utils').notifyError("nvim-tree/nvim-tree.lua load failed!")
+  require('user.utils').notify_error('nvim-tree/nvim-tree.lua load failed!')
   return
 end
 
-vim.opt.termguicolors = true
 nvim_tree.setup({
   -- auto_close = false,
   view = {
@@ -17,8 +16,8 @@ nvim_tree.setup({
     --   enable = true,
     --   quit_on_focus_loss = true,
     --   open_win_config = {
-    --     relative = "editor",
-    --     border = "rounded",
+    --     relative = 'editor',
+    --     border = 'rounded',
     --     width = 30,
     --     height = 30,
     --     row = 1,
@@ -43,10 +42,10 @@ nvim_tree.setup({
     -- enable file diagnostics information
     enable = true,
     icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = ""
+      hint = '',
+      info = '',
+      warning = '',
+      error = ''
     }
   },
   git = {
@@ -59,27 +58,27 @@ nvim_tree.setup({
 
 -- default icon
 vim.g.nvim_tree_icons = {
-  default = " ",
-  symlink = " ",
+  default = ' ',
+  symlink = ' ',
   git = {
-    unstaged = "",
-    staged = "✓",
-    unmerged = "",
-    renamed = "➜",
-    untracked = "",
-    deleted = "",
-    ignored = ""
+    unstaged = '',
+    staged = '✓',
+    unmerged = '',
+    renamed = '➜',
+    untracked = '',
+    deleted = '',
+    ignored = ''
   },
   folder = {
-    -- arrow_open = "╰─▸",
-    -- arrow_closed = "├─▸",
-    arrow_open = "",
-    arrow_closed = "",
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-    symlink_open = ""
+    -- arrow_open = '╰─▸',
+    -- arrow_closed = '├─▸',
+    arrow_open = '',
+    arrow_closed = '',
+    default = '',
+    open = '',
+    empty = '',
+    empty_open = '',
+    symlink = '',
+    symlink_open = ''
   }
 }

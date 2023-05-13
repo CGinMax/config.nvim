@@ -2,13 +2,13 @@
 -- https://github.com/williamboman/mason-lspconfig
 local ok, mason = pcall(require, "mason")
 if (not ok) then
-  require('utils').notifyError('williamboman/mason.nvim load failed!')
+  require('utils').notify_error('williamboman/mason.nvim load failed!')
   return
 end
 
 local ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 if (not ok) then
-  require('utils').notifyError('williamboman/mason-lspconfig load failed!')
+  require('utils').notify_error('williamboman/mason-lspconfig load failed!')
   return
 end
 
@@ -30,7 +30,7 @@ local servers = {
 
 local ok, lspconfig = pcall(require, "lspconfig")
 if (not ok) then
-  require('utils').notifyError('neovim/nvim-lspconfig load failed!')
+  require('utils').notify_error('neovim/nvim-lspconfig load failed!')
   return
 end
 
