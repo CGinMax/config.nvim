@@ -48,7 +48,7 @@ return lazy.setup({
 			{
 				'hrsh7th/cmp-nvim-lsp', -- 替换内置 omnifunc，获得更多补全
 				'williamboman/mason-lspconfig',
-			}, 
+			},
 		},
 	},
 

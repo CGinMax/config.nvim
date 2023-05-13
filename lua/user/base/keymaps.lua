@@ -87,20 +87,6 @@ utils.keymap(utils.mode_normal, "t9", "<cmd>BufferLineGoToBuffer 9<CR>", utils.o
 utils.keymap(utils.mode_normal, 't^', '<cmd>BufferLineGoToBuffer 1<CR>', utils.opts)
 utils.keymap(utils.mode_normal, "t$", "<cmd>BufferLineGoToBuffer -1<CR>", utils.opts)
 
--- winshift
--- utils.keymap(utils.mode_normal, "<C-w>m", "<cmd>WinShift<CR>", utils.opts)
-
--- aerial
--- utils.keymap(utils.mode_normal, "<F1>", "<cmd>AerialToggle<CR>", utils.opts)
-
-
--- utils.keymap(utils.mode_normal, "K", '<cmd>lua require("hover").hover()<CR>', utils.opts)
--- utils.keymap(utils.mode_normal, "gK", '<cmd>lua require("hover").hover_select()<CR>', utils.opts)
-
--- litee calltree
--- utils.keymap(utils.mode_normal, "<C-R>", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", utils.opts)
--- utils.keymap(utils.mode_normal, "<C-O>", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", utils.opts)
-
 -- Telescope
 local ok, telescope_builtin = pcall(require, 'telescope.builtin')
 if ok then
@@ -121,10 +107,28 @@ if ok then
 utils.keymap(utils.mode_normal, '<leader>fn', telescope.extensions.notify.notify, utils.opts)
 end
 
--- lsp
--- utils.keymap(utils.mode_normal, "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", utils.opts)
--- utils.keymap(utils.mode_normal, "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", utils.opts)
--- utils.keymap(utils.mode_normal, "gd", vim.lsp.buf.definition, utils.opts)
+-- LSP
+utils.keymap(utils.mode_normal, '<leader>do', vim.diagnostic.open_float, utils.opts)
+utils.keymap(utils.mode_normal, '<leader>dl', vim.diagnostic.setloclist, utils.opts)
+utils.keymap(utils.mode_normal, '[d', vim.diagnostic.goto_next, utils.opts)
+utils.keymap(utils.mode_normal, ']d', vim.diagnostic.goto_prev, utils.opts)
+  -- utils.keymap(utils.mode_normal, "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", utils.opts)
+
+-- winshift
+-- utils.keymap(utils.mode_normal, "<C-w>m", "<cmd>WinShift<CR>", utils.opts)
+
+-- aerial
+-- utils.keymap(utils.mode_normal, "<F1>", "<cmd>AerialToggle<CR>", utils.opts)
+
+
+-- utils.keymap(utils.mode_normal, "K", '<cmd>lua require("hover").hover()<CR>', utils.opts)
+-- utils.keymap(utils.mode_normal, "gK", '<cmd>lua require("hover").hover_select()<CR>', utils.opts)
+
+-- litee calltree
+-- utils.keymap(utils.mode_normal, "<C-R>", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", utils.opts)
+-- utils.keymap(utils.mode_normal, "<C-O>", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", utils.opts)
+
+
 
 -- Trouble
 utils.keymap(utils.mode_normal, "<leader>tt", "<cmd>TroubleToggle workspace_diagnostics<CR>", utils.opts)
@@ -137,7 +141,7 @@ utils.keymap(utils.mode_normal, "<leader>hw", "<cmd>HopWord<CR>", utils.opts)
 utils.keymap(utils.mode_normal, "<leader>hww", "<cmd>HopWordMW<CR>", utils.opts)
 utils.keymap(utils.mode_normal, "<leader>hc", "<cmd>HopChar2<CR>", utils.opts)
 utils.keymap(utils.mode_normal, "<leader>hcc", "<cmd>HopChar2MW<CR>", utils.opts)
-utils.keymap(utils.mode_normal, "<leader>hl", "<cmd>HopLine<CR>", utils.opts)
+-- utils.keymap(utils.mode_normal, "<leader>hl", "<cmd>HopLine<CR>", utils.opts)
 utils.keymap(utils.mode_normal, "<leader>hls", "<cmd>HopLineStart<CR>", utils.opts)
 
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
