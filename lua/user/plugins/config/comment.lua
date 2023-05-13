@@ -6,8 +6,7 @@ if (not ok) then
   return
 end
 
-comment_nvim.setup(
-{
+comment_nvim.setup({
   padding = true,
   ---LHS of toggle mappings in NORMAL + VISUAL mode
   ---@type table
@@ -62,5 +61,4 @@ comment_nvim.setup(
   ---Post-hook, called after commenting is done
   ---@type fun(ctx: Ctx)
   post_hook = nil,
-}
-)
+})

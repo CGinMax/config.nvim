@@ -28,19 +28,19 @@ mason.setup({
 
 local handlers = require('user.plugins.lsp.handlers')
 local installed_servers = {
-'lua_ls',
-'clangd',
-'cmake',
-'gopls',
-'rust_analyzer',
-'html',
-'cssls',
-'tsserver',
-'volar',
-'pyright',
-'bashls',
-'jsonls',
-'dockerls',
+  'lua_ls',
+  'clangd',
+  'cmake',
+  'gopls',
+  'rust_analyzer',
+  'html',
+  'cssls',
+  'tsserver',
+  'volar',
+  'pyright',
+  'bashls',
+  'jsonls',
+  'dockerls',
 }
 
 mason_lspconfig.setup({
@@ -53,24 +53,24 @@ mason_lspconfig.setup_handlers({
     }
   end,
   -- ['cmake'] = function()
-  --   lspconfig.cmake.setup({
-  --     on_attach = handlers.on_attach,
-  --     capabilities = handlers.capabilities,
-  --     filetypes = { 'CMakeLists.txt', 'cmake' }
-  --   })
-  -- end,
-  ['clangd'] = function()
-    lspconfig.clangd.setup({
-      on_attach = handlers.on_attach,
-      capabilities = handlers.capabilities,
+    --   lspconfig.cmake.setup({
+      --     on_attach = handlers.on_attach,
+      --     capabilities = handlers.capabilities,
+      --     filetypes = { 'CMakeLists.txt', 'cmake' }
+      --   })
+      -- end,
+      ['clangd'] = function()
+        lspconfig.clangd.setup({
+          on_attach = handlers.on_attach,
+          capabilities = handlers.capabilities,
+        })
+      end,
+      ['tsserver'] = function()
+        lspconfig.tsserver.setup({
+          on_attach = handlers.on_attach,
+          capabilities = handlers.capabilities,
+          filetypes = { 'javascript', 'typescript', 'typescriptreact', 'typescript.tsx' }
+        })
+      end,
     })
-  end,
-  ['tsserver'] = function()
-    lspconfig.tsserver.setup({
-      on_attach = handlers.on_attach,
-      capabilities = handlers.capabilities,
-      filetypes = { 'javascript', 'typescript', 'typescriptreact', 'typescript.tsx' }
-    })
-  end,
-})
 

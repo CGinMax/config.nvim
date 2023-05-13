@@ -32,7 +32,8 @@ local new_maker = function(filepath, bufnr, opts)
     end
   }):sync()
 end
-telescope.setup {
+
+telescope.setup({
   defaults = {
     buffer_previewer_maker = new_maker,
 
@@ -135,19 +136,12 @@ telescope.setup {
       find_command = {'fd'},
     }
 
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
   },
   extension = {
     ['ui-select'] = {
       require('telescope.themes').get_cursor({})
     },
   },
-}
+})
 
 telescope.load_extension('ui-select')

@@ -8,10 +8,10 @@ end
 
 notify.setup({
   -- animation:
-    -- fade_in_slide_out
-    -- fade
-    -- slide
-    -- static
+  -- fade_in_slide_out
+  -- fade
+  -- slide
+  -- static
   stages = 'fade_in_slide_out',
   -- 超时时间，默认 5s
   timeout = 2000,

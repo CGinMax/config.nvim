@@ -109,7 +109,6 @@ local function vimode_hl()
 end
 
 -- LuaFormatter off
-
 local comps = {
   vi_mode = {
     left = {
@@ -266,41 +265,6 @@ local properties = {
     bufnames = {}
   }
 }
---
--- local old_components = {
---   left = {
---     active = {
---       comps.vi_mode.left,
---       comps.file.info,
---       comps.lsp.name,
---       comps.diagnos.err,
---       comps.diagnos.warn,
---       comps.diagnos.hint,
---       comps.diagnos.info
---     },
---     inactive = {
---       comps.vi_mode.left,
---       comps.file.info
---     }
---   },
---   mid = {
---     active = {},
---     inactive = {}
---   },
---   right = {
---     active = {
---       comps.git.add,
---       comps.git.change,
---       comps.git.remove,
---       comps.file.os,
---       comps.git.branch,
---       comps.line_percentage,
---       comps.scroll_bar,
---       comps.vi_mode.right
---     },
---     inactive = {}
---   }
--- }
 
 -- LuaFormatter on
 local components = {

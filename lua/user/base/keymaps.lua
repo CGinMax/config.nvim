@@ -90,21 +90,21 @@ utils.keymap(utils.mode_normal, "t$", "<cmd>BufferLineGoToBuffer -1<CR>", utils.
 -- Telescope
 local ok, telescope_builtin = pcall(require, 'telescope.builtin')
 if ok then
-utils.keymap(utils.mode_normal, '<leader>ff', telescope_builtin.find_files, utils.opts)
-utils.keymap(utils.mode_normal, '<leader>fg', telescope_builtin.live_grep, utils.opts)
--- grep string under your cursor
-utils.keymap({utils.mode_normal, utils.mode_visual_block}, '<leader>fs', telescope_builtin.grep_string, utils.opts)
-utils.keymap(utils.mode_normal, '<leader>fb', telescope_builtin.buffers, utils.opts)
-utils.keymap(utils.mode_normal, '<leader>fh', telescope_builtin.help_tags, utils.opts)
-utils.keymap(utils.mode_normal, '<leader>fo', telescope_builtin.oldfiles, utils.opts)
-utils.keymap(utils.mode_normal, '<leader>fch', telescope_builtin.command_history, utils.opts)
-utils.keymap(utils.mode_normal, '<leader>fk', telescope_builtin.keymaps, utils.opts)
+  utils.keymap(utils.mode_normal, '<leader>ff', telescope_builtin.find_files, utils.opts)
+  utils.keymap(utils.mode_normal, '<leader>fg', telescope_builtin.live_grep, utils.opts)
+  -- grep string under your cursor
+  utils.keymap({utils.mode_normal, utils.mode_visual_block}, '<leader>fs', telescope_builtin.grep_string, utils.opts)
+  utils.keymap(utils.mode_normal, '<leader>fb', telescope_builtin.buffers, utils.opts)
+  utils.keymap(utils.mode_normal, '<leader>fh', telescope_builtin.help_tags, utils.opts)
+  utils.keymap(utils.mode_normal, '<leader>fo', telescope_builtin.oldfiles, utils.opts)
+  utils.keymap(utils.mode_normal, '<leader>fch', telescope_builtin.command_history, utils.opts)
+  utils.keymap(utils.mode_normal, '<leader>fk', telescope_builtin.keymaps, utils.opts)
 end
 
 local ok, telescope = pcall(require, 'telescope')
 if ok then
--- 显示历史弹窗记录
-utils.keymap(utils.mode_normal, '<leader>fn', telescope.extensions.notify.notify, utils.opts)
+  -- 显示历史弹窗记录
+  utils.keymap(utils.mode_normal, '<leader>fn', telescope.extensions.notify.notify, utils.opts)
 end
 
 -- LSP
@@ -112,7 +112,7 @@ utils.keymap(utils.mode_normal, '<leader>do', vim.diagnostic.open_float, utils.o
 utils.keymap(utils.mode_normal, '<leader>dl', vim.diagnostic.setloclist, utils.opts)
 utils.keymap(utils.mode_normal, '[d', vim.diagnostic.goto_next, utils.opts)
 utils.keymap(utils.mode_normal, ']d', vim.diagnostic.goto_prev, utils.opts)
-  -- utils.keymap(utils.mode_normal, "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", utils.opts)
+-- utils.keymap(utils.mode_normal, "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", utils.opts)
 
 -- winshift
 -- utils.keymap(utils.mode_normal, "<C-w>m", "<cmd>WinShift<CR>", utils.opts)

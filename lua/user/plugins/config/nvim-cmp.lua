@@ -10,7 +10,6 @@
 -- https://github.com/rafamadriz/friendly-snippets
 -- https://github.com/lukas-reineke/cmp-under-comparator
 
-
 local lspkind = require('lspkind')
 
 local ok, cmp = pcall(require, 'cmp')
@@ -19,7 +18,7 @@ if (not ok) then
   return
 end
 
-  ---@diagnostic disable-next-line: redundant-parameter
+---@diagnostic disable-next-line: redundant-parameter
 cmp.setup({
   -- 指定补全引擎
   snippet = {
