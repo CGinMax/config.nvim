@@ -2,7 +2,7 @@
 
 local ok, neoclip = pcall(require, 'neoclip')
 if (not ok) then
-  require('utils').notify_error('AckslD/nvim-neoclip load failed!')
+  require('user.utils').notify_error('AckslD/nvim-neoclip load failed!')
   return
 end
 
@@ -11,7 +11,7 @@ neoclip.setup({
   enable_persistent_history = false,
   length_limit = 1048576,
   continuous_sync = false,
-  db_path = vim.fn.stdpath("data") .. "/neoclip/neoclip.sqlite3",
+  db_path = vim.fn.stdpath('data') .. '/neoclip/neoclip.sqlite3',
   filter = nil,
   preview = true,
   prompt = nil,
@@ -58,12 +58,6 @@ neoclip.setup({
         edit = 'e',
         custom = {},
       },
-    },
-    fzf = {
-      select = 'default',
-      paste = 'ctrl-p',
-      paste_behind = 'ctrl-k',
-      custom = {},
     },
   },
 })

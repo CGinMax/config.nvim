@@ -106,13 +106,24 @@ if ok then
   -- 显示历史弹窗记录
   utils.keymap(utils.mode_normal, '<leader>fn', telescope.extensions.notify.notify, utils.opts)
 end
+-- local ok, neoclip = pcall(require, 'neoclip')
+-- if ok then
+--   utils.keymap({utils.mode_visual_block, utils.mode_insert}, '<leader>p', neoclip.toggle, utils.opts)
+-- end
 
 -- LSP
-utils.keymap(utils.mode_normal, '<leader>do', vim.diagnostic.open_float, utils.opts)
-utils.keymap(utils.mode_normal, '<leader>dl', vim.diagnostic.setloclist, utils.opts)
-utils.keymap(utils.mode_normal, '[d', vim.diagnostic.goto_next, utils.opts)
-utils.keymap(utils.mode_normal, ']d', vim.diagnostic.goto_prev, utils.opts)
--- utils.keymap(utils.mode_normal, "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", utils.opts)
+-- utils.keymap(utils.mode_normal, '<leader>do', vim.diagnostic.open_float, utils.opts)
+-- utils.keymap(utils.mode_normal, '<leader>dl', vim.diagnostic.setloclist, utils.opts)
+-- utils.keymap(utils.mode_normal, '[d', vim.diagnostic.goto_next, utils.opts)
+-- utils.keymap(utils.mode_normal, ']d', vim.diagnostic.goto_prev, utils.opts)
+-- Lspsaga
+utils.keymap(utils.mode_normal, 'K', ':Lspsaga hover_doc<CR>', utils.opts) -- replace lsp hover
+utils.keymap(utils.mode_normal, 'gf', ':Lspsaga lsp_finder<CR>', utils.opts)
+utils.keymap(utils.mode_normal, 'gca', ':Lspsaga code_action<CR>', utils.opts)
+utils.keymap(utils.mode_normal, 'gpd', ':Lspsaga preview_definition<CR>', utils.opts)
+-- utils.keymap(utils.mode_normal, '<leader>d', ':Lspsaga show_line_diagnostics<CR>', utils.opts)
+utils.keymap(utils.mode_normal, '[d', ':Lspsaga diagnostic_jump_next<CR>', utils.opts)
+utils.keymap(utils.mode_normal, ']d', ':Lspsaga diagnostic_jump_prev<CR>', utils.opts)
 
 -- winshift
 -- utils.keymap(utils.mode_normal, "<C-w>m", "<cmd>WinShift<CR>", utils.opts)
@@ -133,9 +144,6 @@ utils.keymap(utils.mode_normal, ']d', vim.diagnostic.goto_prev, utils.opts)
 -- Trouble
 utils.keymap(utils.mode_normal, "<leader>tt", "<cmd>TroubleToggle workspace_diagnostics<CR>", utils.opts)
 
--- code action
--- utils.keymap(utils.mode_normal, "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", utils.opts)
-
 -- hop
 utils.keymap(utils.mode_normal, "<leader>hw", "<cmd>HopWord<CR>", utils.opts)
 utils.keymap(utils.mode_normal, "<leader>hww", "<cmd>HopWordMW<CR>", utils.opts)
@@ -144,4 +152,3 @@ utils.keymap(utils.mode_normal, "<leader>hcc", "<cmd>HopChar2MW<CR>", utils.opts
 -- utils.keymap(utils.mode_normal, "<leader>hl", "<cmd>HopLine<CR>", utils.opts)
 utils.keymap(utils.mode_normal, "<leader>hls", "<cmd>HopLineStart<CR>", utils.opts)
 
--- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

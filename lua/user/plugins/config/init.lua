@@ -6,7 +6,7 @@ M.setup = function()
   -- plugins do not need to load, NOTE: no .lua suffix required
   local unload_plugins = {
     'init', -- we don't need to load init again
-    -- 'prettier',
+    'prettier',
   }
 
   local unload_plugins_map = {}
