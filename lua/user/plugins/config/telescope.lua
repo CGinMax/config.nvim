@@ -33,12 +33,18 @@ local new_maker = function(filepath, bufnr, opts)
   }):sync()
 end
 
+local prompt_prefix_icon = ' '
+local status_ok, icons = pcall(require, 'nvim-nonicons')
+if status_ok then
+  prompt_prefix_icon = ' ' .. icons.get('telescope') .. ' '
+end
+
 telescope.setup({
   defaults = {
     buffer_previewer_maker = new_maker,
-
-    prompt_prefix = ' ',
-    selection_caret = ' ',
+    prompt_prefix = prompt_prefix_icon,
+    selection_caret = " ❯ ",
+    entry_prefix = "   ",
     path_display = {
       shorten= {
         -- e.g. for a path like

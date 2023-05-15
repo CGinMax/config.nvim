@@ -5,8 +5,17 @@ if (not ok) then
   return
 end
 
+-- nonicons
+local nonicons_extention = require('nvim-nonicons.extentions.nvim-tree')
+
 nvim_tree.setup({
   -- auto_close = false,
+  -- use nonicons
+  renderer = {
+    icons = {
+      glyphs = nonicons_extention.glyphs,
+    },
+  },
   view = {
     width = 25,
     hide_root_folder = false,

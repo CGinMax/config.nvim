@@ -23,7 +23,10 @@ end
 return lazy.setup({
   -- nvim-web-devicons
   'nvim-tree/nvim-web-devicons',
-
+  {
+    'yamatsum/nvim-nonicons',
+    requires = {'nvim-tree/nvim-web-devicons',}
+  },
   -- telescope:模糊搜索
   {
     'nvim-telescope/telescope.nvim',
@@ -115,6 +118,8 @@ return lazy.setup({
 
   -- feline:状态栏美化
   'feline-nvim/feline.nvim',
+  -- satellite:滚动条优化
+  'lewis6991/satellite.nvim',
 
   -- notification
   'rcarriga/nvim-notify',
@@ -188,4 +193,9 @@ return lazy.setup({
 'RRethy/vim-illuminate',
 -- neovim-tasks: 构建任务(default cmake)
 -- 'Shatur/neovim-tasks',
+-- TODO高亮和查找
+{
+  'folke/todo-comments.nvim',
+  dependencies = 'nvim-lua/plenary.nvim',
+},
 })
