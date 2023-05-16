@@ -59,6 +59,7 @@ return lazy.setup({
   {
     'hrsh7th/nvim-cmp', -- 代码补全核心插件，下面都是增强补全的体验插件
     dependencies = {
+      { 'neovim/nvim-lspconfig' }, -- lsp
       { 'onsails/lspkind-nvim' }, -- 为补全添加类似 vscode 的图标
       { 'hrsh7th/vim-vsnip' }, -- vsnip 引擎，用于获得代码片段支持
       { 'hrsh7th/cmp-vsnip' }, -- 适用于 vsnip 的代码片段源
@@ -69,7 +70,6 @@ return lazy.setup({
       { 'f3fora/cmp-spell' }, -- 拼写建议
       { 'rafamadriz/friendly-snippets' }, -- 提供多种语言的代码片段
       { 'lukas-reineke/cmp-under-comparator' }, -- 让补全结果的排序更加智能
-      -- {'tzachar/cmp-tabnine', run = './install.sh'} -- tabnine 源,提供基于 AI 的智能补全
     },
   },
 
@@ -79,7 +79,8 @@ return lazy.setup({
     run = ':TSUpdate',
   },
   'nvim-treesitter/nvim-treesitter-textobjects',
-  'romgrk/nvim-treesitter-context', -- show class/function at the top
+  -- show class/function at the top
+  'romgrk/nvim-treesitter-context',
 
   -- lspsaga:lsp ui美化
   'tami5/lspsaga.nvim',

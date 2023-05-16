@@ -10,13 +10,14 @@
 -- https://github.com/rafamadriz/friendly-snippets
 -- https://github.com/lukas-reineke/cmp-under-comparator
 
-local lspkind = require('lspkind')
 
 local ok, cmp = pcall(require, 'cmp')
 if (not ok) then
   require('user.utils').notify_error('hrsh7th/nvim-cmp load failed!')
   return
 end
+
+local lspkind = require('lspkind')
 
 ---@diagnostic disable-next-line: redundant-parameter
 cmp.setup({
@@ -36,7 +37,6 @@ cmp.setup({
     {name = 'buffer'},
     {name = 'cmdline'},
     {name = 'spell'},
-    -- {name = 'cmp_tabnine'}
   }
   ),
   -- 格式化补全菜单
@@ -55,13 +55,10 @@ cmp.setup({
     comparators = {
       cmp.config.compare.offset,
       cmp.config.compare.exact,
-      cmp.config.compare.score,
       cmp.config.compare.recently_used,
       require('cmp-under-comparator').under,
-      -- require('cmp_tabnine.compare'),
       cmp.config.compare.kind,
       cmp.config.compare.sort_text,
-      cmp.config.compare.length,
       cmp.config.compare.order
     }
   },
@@ -92,8 +89,7 @@ cmp.setup({
       end
     }
     ),
-    -- 类似于 IDEA 的功能，如果没进入选择框，tab
-    -- 会选择下一个，如果进入了选择框，tab 会确认当前选择
+    -- FIXME: 类似于 IDEA 的功能，如果没进入选择框，tab 会选择下一个，如果进入了选择框，tab 会确认当前选择
     ['<Tab>'] = cmp.mapping(
     function(fallback)
       if cmp.visible() then
