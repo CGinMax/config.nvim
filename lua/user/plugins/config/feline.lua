@@ -52,7 +52,7 @@ local icons = {
   macos = ' ',
   windows = ' ',
 
-  errs = ' ',
+  errs = ' ',
   warns = ' ',
   infos = ' ',
   hints = ' ',
@@ -254,14 +254,17 @@ local comps = {
 local properties = {
   force_inactive = {
     filetypes = {
-      'NvimTree',
-      'dbui',
-      'packer',
-      'startify',
-      'fugitive',
-      'fugitiveblame'
+      '^NvimTree$',
+      '^packer$',
+      '^startify$',
+      '^fugitive$',
+      '^fugitiveblame$',
+      '^qf$',
+      '^help$'
     },
-    buftypes = {'terminal'},
+    buftypes = {
+      '^terminal$'
+    },
     bufnames = {}
   }
 }

@@ -85,6 +85,8 @@ return lazy.setup({
   'tami5/lspsaga.nvim',
   -- lsp_signature:插入模式传参提示
   'ray-x/lsp_signature.nvim',
+  -- 重命名工具
+  'smjonas/inc-rename.nvim',
   -- fidget:lsp进度提示
   'j-hui/fidget.nvim',
 
@@ -99,14 +101,6 @@ return lazy.setup({
       'jose-elias-alvarez/null-ls.nvim',
     },
   },
-  -- prettier:前端代码美化
-  -- {
-  --   'MunifTanjim/prettier.nvim',
-  --   dependencies = {
-  --     'neovim/nvim-lspconfig',
-  --     'jose-elias-alvarez/null-ls.nvim',
-  --   },
-  -- },
   -- dap
   -- 'ravenxrz/DAPInstall.nvim', -- help us install several debuggers
   -- nvim-dap
@@ -130,6 +124,9 @@ return lazy.setup({
   -- gitsigns: git信息
   'lewis6991/gitsigns.nvim',
 
+  -- diffview.nvim: git 可视化diff
+  'sindrets/diffview.nvim',
+
   -- nvim-autopairs:括号自动补全
   'windwp/nvim-autopairs',
   -- nvim-surround: 自动前后插入括号
@@ -138,7 +135,7 @@ return lazy.setup({
   'numToStr/Comment.nvim',
 
   -- colorscheme
-  'folke/tokyonight.nvim',
+  'rebelot/kanagawa.nvim',
 
   -- bufferline: 支持 LSP 状态的 buffer 栏
   {
@@ -150,8 +147,8 @@ return lazy.setup({
   },
 },
 
--- aerial.nvim: 代码大纲和快速导航
--- 'stevearc/aerial.nvim',
+-- symbols-outline.nvim: 代码大纲和快速导航
+'simrat39/symbols-outline.nvim',
 
 -- winshift: 重排窗口
 -- 'sindrets/winshift.nvim',

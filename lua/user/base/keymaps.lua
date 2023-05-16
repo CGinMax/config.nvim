@@ -28,15 +28,17 @@ utils.keymap(utils.mode_normal, '<C-Right>', ':vertical resize +2<CR>', utils.op
 
 -- Move text up and down
 -- BUG: unuse for mac
-utils.keymap(utils.mode_normal, '<A-j>', '<Esc>:m .+1<CR>==gi', utils.opts)
-utils.keymap(utils.mode_normal, '<A-k>', '<Esc>:m .-2<CR>==gi', utils.opts)
-utils.keymap(utils.mode_visual, '<A-j>', ':m .+1<CR>==', opts)
-utils.keymap(utils.mode_visual, '<A-k>', ':m .-2<CR>==', opts)
-utils.keymap(utils.mode_visual_block, "<A-j>", ":move '>+1<CR>gv-gv", opts)
-utils.keymap(utils.mode_visual_block, "<A-k>", ":move '<-2<CR>gv-gv", opts)
+utils.keymap(utils.mode_insert, '<A-j>', '<Esc>:m .+1<CR>==gi', utils.opts)
+utils.keymap(utils.mode_insert, '<A-k>', '<Esc>:m .-2<CR>==gi', utils.opts)
+utils.keymap(utils.mode_normal, '<A-j>', ':m .+1<CR>==', utils.opts)
+utils.keymap(utils.mode_normal, '<A-k>', ':m .-2<CR>==', utils.opts)
+utils.keymap(utils.mode_visual, "<A-j>", ":m '>+1<CR>gv=gv", utils.opts)
+utils.keymap(utils.mode_visual, "<A-k>", ":m '<-2<CR>gv=gv", utils.opts)
+utils.keymap(utils.mode_visual_block, "<A-j>", ":move '>+1<CR>gv-gv", utils.opts)
+utils.keymap(utils.mode_visual_block, "<A-k>", ":move '<-2<CR>gv-gv", utils.opts)
 
 -- paste selected block
-utils.keymap(utils.mode_visual, "p", '"_dP', opts)
+utils.keymap(utils.mode_visual, "p", '"_dP', utils.opts)
 
 -- Toggle nvim-tree
 utils.keymap(utils.mode_normal, "<leader>e", "<cmd>NvimTreeToggle<CR>", utils.opts)
@@ -125,11 +127,14 @@ utils.keymap(utils.mode_normal, 'gpd', ':Lspsaga preview_definition<CR>', utils.
 utils.keymap(utils.mode_normal, '[d', ':Lspsaga diagnostic_jump_next<CR>', utils.opts)
 utils.keymap(utils.mode_normal, ']d', ':Lspsaga diagnostic_jump_prev<CR>', utils.opts)
 
+-- inc-rename
+utils.keymap(utils.mode_normal, '<leader>rn', ':IncRename ', utils.opts)
+
 -- winshift
 -- utils.keymap(utils.mode_normal, "<C-w>m", "<cmd>WinShift<CR>", utils.opts)
 
--- aerial
--- utils.keymap(utils.mode_normal, "<F1>", "<cmd>AerialToggle<CR>", utils.opts)
+-- symbols-outline
+utils.keymap(utils.mode_normal, "<F1>", ":SymbolsOutline<CR>", utils.opts)
 
 
 -- utils.keymap(utils.mode_normal, "K", '<cmd>lua require("hover").hover()<CR>', utils.opts)
