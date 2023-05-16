@@ -131,20 +131,14 @@ utils.keymap(utils.mode_normal, ']d', ':Lspsaga diagnostic_jump_prev<CR>', utils
 utils.keymap(utils.mode_normal, '<leader>rn', ':IncRename ', utils.opts)
 
 -- winshift
--- utils.keymap(utils.mode_normal, "<C-w>m", "<cmd>WinShift<CR>", utils.opts)
+utils.keymap(utils.mode_normal, "<C-w>m", ":WinShift<CR>", utils.opts)
 
 -- symbols-outline
 utils.keymap(utils.mode_normal, "<F1>", ":SymbolsOutline<CR>", utils.opts)
 
-
--- utils.keymap(utils.mode_normal, "K", '<cmd>lua require("hover").hover()<CR>', utils.opts)
--- utils.keymap(utils.mode_normal, "gK", '<cmd>lua require("hover").hover_select()<CR>', utils.opts)
-
 -- litee calltree
 -- utils.keymap(utils.mode_normal, "<C-R>", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", utils.opts)
 -- utils.keymap(utils.mode_normal, "<C-O>", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", utils.opts)
-
-
 
 -- Trouble
 utils.keymap(utils.mode_normal, "<leader>tt", "<cmd>TroubleToggle workspace_diagnostics<CR>", utils.opts)

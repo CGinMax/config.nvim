@@ -142,9 +142,7 @@ return lazy.setup({
   {
     'akinsho/bufferline.nvim',
     dependencies = {
-      {
-		'famiu/bufdelete.nvim',  -- 删除 buffer 时不影响现有布局
-      }
+      { 'famiu/bufdelete.nvim', } -- 删除 buffer 时不影响现有布局
   },
 },
 
@@ -152,7 +150,7 @@ return lazy.setup({
 'simrat39/symbols-outline.nvim',
 
 -- winshift: 重排窗口
--- 'sindrets/winshift.nvim',
+'sindrets/winshift.nvim',
 
 -- indent-blankline: 显示缩进线
 'lukas-reineke/indent-blankline.nvim',

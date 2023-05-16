@@ -57,9 +57,9 @@ local function lsp_keymaps(bufnr)
   -- utils.keymap(utils.mode_normal, '<leader>rn', vim.lsp.buf.rename, opts)
   utils.keymap(utils.mode_normal, '<leader>rf', vim.lsp.buf.references, opts)
   utils.keymap({utils.mode_normal, utils.mode_visual}, '<leader>ca', vim.lsp.buf.code_action, opts)
-  utils.keymap(utils.mode_normal, "<C-k>", vim.lsp.buf.signature_help, opts)
+  -- FIXME: key mapping conflict
+  -- utils.keymap(utils.mode_normal, "<C-k>", vim.lsp.buf.signature_help, opts)
 
-  -- utils.bmap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", utils.opts)
   -- utils.bmap(bufnr, "n", "<leader>dj", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', utils.opts)
   -- utils.bmap(bufnr, "n", "<leader>dk", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', utils.opts)
   -- utils.bmap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', utils.opts)
