@@ -1,7 +1,8 @@
 -- https://github.com/akinsho/toggleterm.nvim
 
-local ok, toggleterm = pcall(require, "toggleterm")
+local ok, toggleterm = pcall(require, 'toggleterm')
 if not ok then
+  require('user.utils').notify_error('toggleterm.nvim load failed!')
   return
 end
 toggleterm.setup({

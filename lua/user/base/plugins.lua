@@ -160,16 +160,8 @@ return lazy.setup({
 
 
 -- toggleterm: 终端
--- 'akinsho/toggleterm.nvim',
+'akinsho/toggleterm.nvim',
 
--- project: 工程管理
--- 'ahmedkhalf/project.nvim',
-
--- litee: 调用查询
--- 'ldelossa/litee.nvim',
--- 'ldelossa/litee-calltree.nvim',
--- 'ldelossa/litee-symboltree.nvim',
--- 'ldelossa/litee-filetree.nvim',
 -- trouble: 错误显示
 'folke/trouble.nvim',
 
@@ -187,8 +179,6 @@ return lazy.setup({
 },
 -- vim-illuminate: 上下文高亮显示当前光标所在的内容
 'RRethy/vim-illuminate',
--- neovim-tasks: 构建任务(default cmake)
--- 'Shatur/neovim-tasks',
 -- TODO高亮和查找
 {
   'folke/todo-comments.nvim',
