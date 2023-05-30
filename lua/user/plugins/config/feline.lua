@@ -1,33 +1,33 @@
 -- https://github.com/feline-nvim/feline.nvim
 
-local ok, feline = pcall(require, 'feline')
-if (not ok) then
-  require('user.utils').notify_error('feline-nvim/feline.nvim load failed!')
+local ok, feline = pcall(require, "feline")
+if not ok then
+  require("user.utils").notify_error("feline-nvim/feline.nvim load failed!")
   return
 end
-local ok, lsp = pcall(require, 'feline.providers.lsp')
-if (not ok) then
-  require('user.utils').notify_error('feline.providers.lsp load failed!')
+local ok, lsp = pcall(require, "feline.providers.lsp")
+if not ok then
+  require("user.utils").notify_error("feline.providers.lsp load failed!")
   return
 end
 
-local vi_mode_utils = require('feline.providers.vi_mode')
+local vi_mode_utils = require("feline.providers.vi_mode")
 -- local position = require('feline.providers.position')
-local cursor = require('feline.providers.cursor')
+local cursor = require("feline.providers.cursor")
 
 -- local colors = require 'theme.colors'
 local colors = {
-  bg = '#282c34',
-  fg = '#abb2bf',
-  yellow = '#e0af68',
-  cyan = '#56b6c2',
-  darkblue = '#081633',
-  green = '#98c379',
-  orange = '#d19a66',
-  violet = '#a9a1e1',
-  magenta = '#c678dd',
-  blue = '#61afef',
-  red = '#e86671'
+  bg = "#282c34",
+  fg = "#abb2bf",
+  yellow = "#e0af68",
+  cyan = "#56b6c2",
+  darkblue = "#081633",
+  green = "#98c379",
+  orange = "#d19a66",
+  violet = "#a9a1e1",
+  magenta = "#c678dd",
+  blue = "#61afef",
+  red = "#e86671",
 }
 
 local vi_mode_colors = {
@@ -37,36 +37,36 @@ local vi_mode_colors = {
   OP = colors.green,
   BLOCK = colors.blue,
   REPLACE = colors.violet,
-  ['V-REPLACE'] = colors.violet,
+  ["V-REPLACE"] = colors.violet,
   ENTER = colors.cyan,
   MORE = colors.cyan,
   SELECT = colors.orange,
   COMMAND = colors.green,
   SHELL = colors.green,
   TERM = colors.green,
-  NONE = colors.yellow
+  NONE = colors.yellow,
 }
 
 local icons = {
-  linux = ' ',
-  macos = ' ',
-  windows = ' ',
+  linux = " ",
+  macos = " ",
+  windows = " ",
 
-  errs = ' ',
-  warns = ' ',
-  infos = ' ',
-  hints = ' ',
+  errs = " ",
+  warns = " ",
+  infos = " ",
+  hints = " ",
 
-  lsp = ' ',
-  git = ''
+  lsp = " ",
+  git = "",
 }
 
 local function file_osinfo()
   local os = vim.bo.fileformat:upper()
   local icon
-  if os == 'UNIX' then
+  if os == "UNIX" then
     icon = icons.linux
-  elseif os == 'MAC' then
+  elseif os == "MAC" then
     icon = icons.macos
   else
     icon = icons.windows
@@ -76,10 +76,10 @@ end
 
 local function lsp_diagnostics_info()
   return {
-    errs = lsp.get_diagnostics_count('Error'),
-    warns = lsp.get_diagnostics_count('Warn'),
-    infos = lsp.get_diagnostics_count('Info'),
-    hints = lsp.get_diagnostics_count('Hint')
+    errs = lsp.get_diagnostics_count("Error"),
+    warns = lsp.get_diagnostics_count("Warn"),
+    infos = lsp.get_diagnostics_count("Info"),
+    hints = lsp.get_diagnostics_count("Hint"),
   }
 end
 
@@ -104,7 +104,7 @@ local function vimode_hl()
     -- fg = vi_mode_utils.get_mode_color(),
     fg = colors.bg,
     bg = vi_mode_utils.get_mode_color(),
-    style = 'bold',
+    style = "bold",
   }
 end
 
@@ -112,7 +112,7 @@ end
 local comps = {
   vi_mode = {
     left = {
-      provider= {
+      provider = {
         name = "vi_mode",
         opts = {
           show_mode_name = true,
@@ -121,152 +121,162 @@ local comps = {
       },
       -- provider = '▊',
       hl = vimode_hl,
-      left_sep = 'block',
-      right_sep = ' '
+      left_sep = "block",
+      right_sep = " ",
     },
     right = {
       -- provider = '▊',
-      provider = 'position',
+      provider = "position",
       hl = vimode_hl,
-      left_sep = 'block',
-      right_sep = 'block'
-    }
+      left_sep = "block",
+      right_sep = "block",
+    },
   },
   file = {
     info = {
-      provider = 'file_info',
+      provider = "file_info",
       hl = {
         fg = colors.blue,
-        style = 'bold'
-      }
+        style = "bold",
+      },
     },
     encoding = {
-      provider = 'file_encoding',
-      left_sep = ' ',
+      provider = "file_encoding",
+      left_sep = " ",
       hl = {
         fg = colors.violet,
-        style = 'bold'
-      }
+        style = "bold",
+      },
     },
     type = {
-      provider = 'file_type'
+      provider = "file_type",
     },
     os = {
       provider = file_osinfo,
-      left_sep = ' ',
+      left_sep = " ",
       hl = {
         fg = colors.violet,
-        style = 'bold'
-      }
-    }
+        style = "bold",
+      },
+    },
   },
   line_percentage = {
-    provider = 'line_percentage',
-    left_sep = ' ',
+    provider = "line_percentage",
+    left_sep = " ",
     hl = {
-      style = 'bold'
-    }
+      style = "bold",
+    },
   },
   scroll_bar = {
-    provider = 'scroll_bar',
-    left_sep = ' ',
-    right_sep = ' ',
+    provider = "scroll_bar",
+    left_sep = " ",
+    right_sep = " ",
     hl = {
       fg = colors.blue,
-      style = 'bold'
-    }
+      style = "bold",
+    },
   },
   diagnos = {
     err = {
-      provider = diag_of(lsp_diagnostics_info, 'errs'),
-      left_sep = ' ',
-      enabled = diag_enable(lsp_diagnostics_info, 'errs'),
+      provider = diag_of(lsp_diagnostics_info, "errs"),
+      left_sep = " ",
+      enabled = diag_enable(lsp_diagnostics_info, "errs"),
       hl = {
-        fg = colors.red
-      }
+        fg = colors.red,
+      },
     },
     warn = {
-      provider = diag_of(lsp_diagnostics_info, 'warns'),
-      left_sep = ' ',
-      enabled = diag_enable(lsp_diagnostics_info, 'warns'),
+      provider = diag_of(lsp_diagnostics_info, "warns"),
+      left_sep = " ",
+      enabled = diag_enable(lsp_diagnostics_info, "warns"),
       hl = {
-        fg = colors.yellow
-      }
+        fg = colors.yellow,
+      },
     },
     info = {
-      provider = diag_of(lsp_diagnostics_info, 'infos'),
-      left_sep = ' ',
-      enabled = diag_enable(lsp_diagnostics_info, 'infos'),
+      provider = diag_of(lsp_diagnostics_info, "infos"),
+      left_sep = " ",
+      enabled = diag_enable(lsp_diagnostics_info, "infos"),
       hl = {
-        fg = colors.blue
-      }
+        fg = colors.blue,
+      },
     },
     hint = {
-      provider = diag_of(lsp_diagnostics_info, 'hints'),
-      left_sep = ' ',
-      enabled = diag_enable(lsp_diagnostics_info, 'hints'),
+      provider = diag_of(lsp_diagnostics_info, "hints"),
+      left_sep = " ",
+      enabled = diag_enable(lsp_diagnostics_info, "hints"),
       hl = {
-        fg = colors.cyan
-      }
+        fg = colors.cyan,
+      },
     },
   },
   lsp = {
     name = {
-      provider = 'lsp_client_names',
-      left_sep = ' ',
+      provider = "lsp_client_names",
+      left_sep = " ",
       icon = icons.lsp,
       hl = {
-        fg = colors.yellow
-      }
-    }
+        fg = colors.yellow,
+      },
+    },
   },
   git = {
     branch = {
-      provider = 'git_branch',
+      provider = "git_branch",
       icon = icons.git,
-      left_sep = ' ',
+      left_sep = " ",
       hl = {
         fg = colors.violet,
-        style = 'bold'
+        style = "bold",
       },
     },
     add = {
-      provider = 'git_diff_added',
+      provider = "git_diff_added",
       hl = {
-        fg = colors.green
-      }
+        fg = colors.green,
+      },
     },
     change = {
-      provider = 'git_diff_changed',
+      provider = "git_diff_changed",
       hl = {
-        fg = colors.orange
-      }
+        fg = colors.orange,
+      },
     },
     remove = {
-      provider = 'git_diff_removed',
+      provider = "git_diff_removed",
       hl = {
-        fg = colors.red
-      }
-    }
-  }
+        fg = colors.red,
+      },
+    },
+  },
 }
 
 local properties = {
   force_inactive = {
     filetypes = {
-      '^NvimTree$',
-      '^packer$',
-      '^startify$',
-      '^fugitive$',
-      '^fugitiveblame$',
-      '^qf$',
-      '^help$'
+      "NvimTree",
+      "packer",
+      "^startify$",
+      "^fugitive$",
+      "^fugitiveblame$",
+      "^qf$",
+      "help",
     },
     buftypes = {
-      '^terminal$'
+      "terminal",
     },
-    bufnames = {}
-  }
+    bufnames = {},
+  },
+  disable = {
+    filetypes = {
+      "NvimTree",
+      "help",
+    },
+    buftypes = {
+      "terminal",
+    },
+    bufnames = {},
+  },
 }
 
 -- LuaFormatter on
@@ -291,14 +301,16 @@ local components = {
       comps.git.branch,
       comps.line_percentage,
       comps.scroll_bar,
-      comps.vi_mode.right
-    }
+      comps.vi_mode.right,
+    },
   },
   inactive = {
     {
       comps.vi_mode.left,
-      comps.file.info
-    }, {}, {}
+      comps.file.info,
+    },
+    {},
+    {},
   },
 }
 
@@ -307,5 +319,5 @@ feline.setup({
   default_fg = colors.fg,
   components = components,
   properties = properties,
-  vi_mode_colors = vi_mode_colors
+  vi_mode_colors = vi_mode_colors,
 })
