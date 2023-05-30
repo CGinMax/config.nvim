@@ -116,6 +116,16 @@ return lazy.setup({
 	-- "nvim-lualine/lualine.nvim",
 	-- "rebelot/heirline.nvim",
 
+	-- bufferline: 支持 LSP 状态的 buffer 栏
+	{
+		"akinsho/bufferline.nvim",
+		dependencies = {
+			{ "famiu/bufdelete.nvim" }, -- 删除 buffer 时不影响现有布局
+		},
+	},
+
+	"Bekaboo/dropbar.nvim",
+
 	-- satellite:滚动条优化
 	"lewis6991/satellite.nvim",
 
@@ -140,14 +150,6 @@ return lazy.setup({
 
 	-- colorscheme
 	"rebelot/kanagawa.nvim",
-
-	-- bufferline: 支持 LSP 状态的 buffer 栏
-	{
-		"akinsho/bufferline.nvim",
-		dependencies = {
-			{ "famiu/bufdelete.nvim" }, -- 删除 buffer 时不影响现有布局
-		},
-	},
 
 	-- symbols-outline.nvim: 代码大纲和快速导航
 	"simrat39/symbols-outline.nvim",
