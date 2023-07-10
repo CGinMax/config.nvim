@@ -23,10 +23,6 @@ end
 return lazy.setup({
 	-- nvim-web-devicons
 	"nvim-tree/nvim-web-devicons",
-	{
-		"yamatsum/nvim-nonicons",
-		requires = { "nvim-tree/nvim-web-devicons" },
-	},
 	-- telescope:模糊搜索
 	{
 		"nvim-telescope/telescope.nvim",
