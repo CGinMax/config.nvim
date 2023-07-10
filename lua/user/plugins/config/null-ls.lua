@@ -34,10 +34,10 @@ null_ls.setup({
 		null_ls.builtins.completion.spell,
 
 		-- code actions
-		null_ls.builtins.code_actions.gomodifytags, -- go code_actions
-		null_ls.builtins.code_actions.impl, -- go code_actions
+		-- null_ls.builtins.code_actions.gomodifytags, -- go code_actions
+		-- null_ls.builtins.code_actions.impl, -- go code_actions
 		-- null_ls.builtins.code_actions.eslint,
-		null_ls.builtins.code_actions.shellcheck,
+		-- null_ls.builtins.code_actions.shellcheck,
 
 		-- diagnostics
 		-- null_ls.builtins.diagnostics.eslint,

@@ -1,13 +1,14 @@
 local M = {}
 
 local utils = require("user.utils")
+local icons = require("user.icons")
 
 M.setup = function()
 	local signs = {
-		{ name = "DiagnosticSignError", text = "" },
-		{ name = "DiagnosticSignWarn", text = "" },
-		{ name = "DiagnosticSignHint", text = "" },
-		{ name = "DiagnosticSignInfo", text = "" },
+		{ name = "DiagnosticSignError", text = icons.diagnostics.BoldError },
+		{ name = "DiagnosticSignWarn", text = icons.diagnostics.BoldWarning },
+		{ name = "DiagnosticSignHint", text = icons.diagnostics.BoldHint },
+		{ name = "DiagnosticSignInfo", text = icons.diagnostics.BoldInformation },
 	}
 	for _, sign in ipairs(signs) do
 		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
