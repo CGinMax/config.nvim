@@ -16,7 +16,6 @@ M.setup = function()
 
 	local config = {
 		virtual_text = {
-			prefix = "●",
 			-- always show prefix
 			source = "always",
 		},

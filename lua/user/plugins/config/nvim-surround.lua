@@ -1,9 +1,9 @@
 -- https://github.com/kylechui/nvim-surround
 
-local ok, surround = pcall(require, 'nvim-surround')
-if (not ok) then
-  require('user.utils').notify_error('kylechui/nvim-surround load failed!')
-  return
+local ok, surround = pcall(require, "nvim-surround")
+if not ok then
+	require("user.utils").notify_error("kylechui/nvim-surround load failed!")
+	return
 end
 --     Old text                    Command         New text
 -- --------------------------------------------------------------------------------

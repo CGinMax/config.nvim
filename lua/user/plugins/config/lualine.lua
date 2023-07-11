@@ -6,12 +6,14 @@ if not status_ok then
 	return
 end
 
+local icons = require("user.icons")
+
 lualine.setup({
 	options = {
 		icons_enabled = true,
 		theme = "auto",
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
+		component_separators = { left = icons.ui.DividerRight, right = icons.ui.DividerLeft },
+		section_separators = { left = icons.ui.BoldDividerRight, right = icons.ui.BoldDividerLeft },
 		disabled_filetypes = {
 			"NvimTree",
 		},

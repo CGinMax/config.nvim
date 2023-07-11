@@ -15,9 +15,9 @@ lspsaga.setup({
 	warn_sign = icons.diagnostics.BoldWarning,
 	hint_sign = icons.diagnostics.BoldHint,
 	infor_sign = icons.diagnostics.BoldInformation,
-	diagnostic_header_icon = " ",
+	diagnostic_header_icon = icons.diagnostics.BoldDebug,
 	-- 正在写入的行提示
-	code_action_icon = " ",
+	code_action_icon = icons.ui.BoldCheck,
 	code_action_prompt = {
 		-- 显示写入行提示
 		-- 如果为 true ，则写代码时会在左侧行号栏中显示你所定义的图标
