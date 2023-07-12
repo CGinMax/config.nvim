@@ -1,37 +1,37 @@
 vim.g.mapleader = ";"
 vim.g.maplocalleader = ";"
 
-local utils = require('user.utils')
+local utils = require("user.utils")
 vim.keybinds = {
-  gmap = vim.api.nvim_set_keymap,
-  bmap = vim.api.nvim_buf_set_keymap,
-  dgmap = vim.api.nvim_del_keymap,
-  dbmap = vim.api.nvim_buf_del_keymap,
-  opts = { noremap = true, silent = true }
+	gmap = vim.api.nvim_set_keymap,
+	bmap = vim.api.nvim_buf_set_keymap,
+	dgmap = vim.api.nvim_del_keymap,
+	dbmap = vim.api.nvim_buf_del_keymap,
+	opts = { noremap = true, silent = true },
 }
 
 -- 重新修改跳转到头和尾
-utils.keymap({utils.mode_normal, utils.mode_visual}, 'H', '^', utils.opts)
-utils.keymap({utils.mode_normal, utils.mode_visual}, 'L', '$', utils.opts)
+utils.keymap({ utils.mode_normal, utils.mode_visual }, "H", "^", utils.opts)
+utils.keymap({ utils.mode_normal, utils.mode_visual }, "L", "$", utils.opts)
 
 -- Better window navigation
-utils.keymap(utils.mode_normal, '<C-h>', '<C-w>h', utils.opts)
-utils.keymap(utils.mode_normal, '<C-j>', '<C-w>j', utils.opts)
-utils.keymap(utils.mode_normal, '<C-k>', '<C-w>k', utils.opts)
-utils.keymap(utils.mode_normal, '<C-l>', '<C-w>l', utils.opts)
+utils.keymap(utils.mode_normal, "<C-h>", "<C-w>h", utils.opts)
+utils.keymap(utils.mode_normal, "<C-j>", "<C-w>j", utils.opts)
+utils.keymap(utils.mode_normal, "<C-k>", "<C-w>k", utils.opts)
+utils.keymap(utils.mode_normal, "<C-l>", "<C-w>l", utils.opts)
 
 -- Resize with arrows
-utils.keymap(utils.mode_normal, '<C-Up>', ':resize -2<CR>', utils.opts)
-utils.keymap(utils.mode_normal, '<C-Down>', ':resize +2<CR>', utils.opts)
-utils.keymap(utils.mode_normal, '<C-Left>', ':vertical resize -2<CR>', utils.opts)
-utils.keymap(utils.mode_normal, '<C-Right>', ':vertical resize +2<CR>', utils.opts)
+utils.keymap(utils.mode_normal, "<C-Up>", ":resize -2<CR>", utils.opts)
+utils.keymap(utils.mode_normal, "<C-Down>", ":resize +2<CR>", utils.opts)
+utils.keymap(utils.mode_normal, "<C-Left>", ":vertical resize -2<CR>", utils.opts)
+utils.keymap(utils.mode_normal, "<C-Right>", ":vertical resize +2<CR>", utils.opts)
 
 -- Move text up and down
 -- BUG: unuse for mac
-utils.keymap(utils.mode_insert, '<A-j>', '<Esc>:m .+1<CR>==gi', utils.opts)
-utils.keymap(utils.mode_insert, '<A-k>', '<Esc>:m .-2<CR>==gi', utils.opts)
-utils.keymap(utils.mode_normal, '<A-j>', ':m .+1<CR>==', utils.opts)
-utils.keymap(utils.mode_normal, '<A-k>', ':m .-2<CR>==', utils.opts)
+utils.keymap(utils.mode_insert, "<A-j>", "<Esc>:m .+1<CR>==gi", utils.opts)
+utils.keymap(utils.mode_insert, "<A-k>", "<Esc>:m .-2<CR>==gi", utils.opts)
+utils.keymap(utils.mode_normal, "<A-j>", ":m .+1<CR>==", utils.opts)
+utils.keymap(utils.mode_normal, "<A-k>", ":m .-2<CR>==", utils.opts)
 utils.keymap(utils.mode_visual, "<A-j>", ":m '>+1<CR>gv=gv", utils.opts)
 utils.keymap(utils.mode_visual, "<A-k>", ":m '<-2<CR>gv=gv", utils.opts)
 utils.keymap(utils.mode_visual_block, "<A-j>", ":move '>+1<CR>gv-gv", utils.opts)
@@ -86,27 +86,32 @@ utils.keymap(utils.mode_normal, "t6", "<cmd>BufferLineGoToBuffer 6<CR>", utils.o
 utils.keymap(utils.mode_normal, "t7", "<cmd>BufferLineGoToBuffer 7<CR>", utils.opts)
 utils.keymap(utils.mode_normal, "t8", "<cmd>BufferLineGoToBuffer 8<CR>", utils.opts)
 utils.keymap(utils.mode_normal, "t9", "<cmd>BufferLineGoToBuffer 9<CR>", utils.opts)
-utils.keymap(utils.mode_normal, 't^', '<cmd>BufferLineGoToBuffer 1<CR>', utils.opts)
+utils.keymap(utils.mode_normal, "t^", "<cmd>BufferLineGoToBuffer 1<CR>", utils.opts)
 utils.keymap(utils.mode_normal, "t$", "<cmd>BufferLineGoToBuffer -1<CR>", utils.opts)
 
 -- Telescope
-local ok, telescope_builtin = pcall(require, 'telescope.builtin')
+local ok, telescope_builtin = pcall(require, "telescope.builtin")
 if ok then
-  utils.keymap(utils.mode_normal, '<leader>ff', telescope_builtin.find_files, utils.opts)
-  utils.keymap(utils.mode_normal, '<leader>fg', telescope_builtin.live_grep, utils.opts)
-  -- grep string under your cursor
-  utils.keymap({utils.mode_normal, utils.mode_visual_block}, '<leader>fs', telescope_builtin.grep_string, utils.opts)
-  utils.keymap(utils.mode_normal, '<leader>fb', telescope_builtin.buffers, utils.opts)
-  utils.keymap(utils.mode_normal, '<leader>fh', telescope_builtin.help_tags, utils.opts)
-  utils.keymap(utils.mode_normal, '<leader>fo', telescope_builtin.oldfiles, utils.opts)
-  utils.keymap(utils.mode_normal, '<leader>fch', telescope_builtin.command_history, utils.opts)
-  utils.keymap(utils.mode_normal, '<leader>fk', telescope_builtin.keymaps, utils.opts)
+	utils.keymap(utils.mode_normal, "<leader>ff", telescope_builtin.find_files, utils.opts)
+	utils.keymap(utils.mode_normal, "<leader>fg", telescope_builtin.live_grep, utils.opts)
+	-- grep string under your cursor
+	utils.keymap(
+		{ utils.mode_normal, utils.mode_visual_block },
+		"<leader>fs",
+		telescope_builtin.grep_string,
+		utils.opts
+	)
+	utils.keymap(utils.mode_normal, "<leader>fb", telescope_builtin.buffers, utils.opts)
+	utils.keymap(utils.mode_normal, "<leader>fh", telescope_builtin.help_tags, utils.opts)
+	utils.keymap(utils.mode_normal, "<leader>fo", telescope_builtin.oldfiles, utils.opts)
+	utils.keymap(utils.mode_normal, "<leader>fch", telescope_builtin.command_history, utils.opts)
+	utils.keymap(utils.mode_normal, "<leader>fk", telescope_builtin.keymaps, utils.opts)
 end
 
-local ok, telescope = pcall(require, 'telescope')
+local ok, telescope = pcall(require, "telescope")
 if ok then
-  -- 显示历史弹窗记录
-  utils.keymap(utils.mode_normal, '<leader>fn', telescope.extensions.notify.notify, utils.opts)
+	-- 显示历史弹窗记录
+	utils.keymap(utils.mode_normal, "<leader>fn", telescope.extensions.notify.notify, utils.opts)
 end
 -- local ok, neoclip = pcall(require, 'neoclip')
 -- if ok then
@@ -119,16 +124,16 @@ end
 -- utils.keymap(utils.mode_normal, '[d', vim.diagnostic.goto_next, utils.opts)
 -- utils.keymap(utils.mode_normal, ']d', vim.diagnostic.goto_prev, utils.opts)
 -- Lspsaga
-utils.keymap(utils.mode_normal, 'K', ':Lspsaga hover_doc<CR>', utils.opts) -- replace lsp hover
-utils.keymap(utils.mode_normal, 'gf', ':Lspsaga lsp_finder<CR>', utils.opts)
-utils.keymap(utils.mode_normal, 'gca', ':Lspsaga code_action<CR>', utils.opts)
-utils.keymap(utils.mode_normal, 'gpd', ':Lspsaga preview_definition<CR>', utils.opts)
+utils.keymap(utils.mode_normal, "K", ":Lspsaga hover_doc<CR>", utils.opts) -- replace lsp hover
+utils.keymap(utils.mode_normal, "gf", ":Lspsaga lsp_finder<CR>", utils.opts)
+utils.keymap(utils.mode_normal, "<M-CR>", ":Lspsaga code_action<CR>", utils.opts)
+utils.keymap(utils.mode_normal, "gpd", ":Lspsaga preview_definition<CR>", utils.opts)
 -- utils.keymap(utils.mode_normal, '<leader>d', ':Lspsaga show_line_diagnostics<CR>', utils.opts)
-utils.keymap(utils.mode_normal, '[d', ':Lspsaga diagnostic_jump_next<CR>', utils.opts)
-utils.keymap(utils.mode_normal, ']d', ':Lspsaga diagnostic_jump_prev<CR>', utils.opts)
+utils.keymap(utils.mode_normal, "[d", ":Lspsaga diagnostic_jump_next<CR>", utils.opts)
+utils.keymap(utils.mode_normal, "]d", ":Lspsaga diagnostic_jump_prev<CR>", utils.opts)
 
 -- inc-rename
-utils.keymap(utils.mode_normal, '<leader>rn', ':IncRename ', utils.opts)
+utils.keymap(utils.mode_normal, "<leader>rn", ":IncRename ", utils.opts)
 
 -- winshift
 utils.keymap(utils.mode_normal, "<C-w>m", ":WinShift<CR>", utils.opts)
@@ -150,4 +155,3 @@ utils.keymap(utils.mode_normal, "<leader>hc", "<cmd>HopChar2<CR>", utils.opts)
 utils.keymap(utils.mode_normal, "<leader>hcc", "<cmd>HopChar2MW<CR>", utils.opts)
 -- utils.keymap(utils.mode_normal, "<leader>hl", "<cmd>HopLine<CR>", utils.opts)
 utils.keymap(utils.mode_normal, "<leader>hls", "<cmd>HopLineStart<CR>", utils.opts)
-

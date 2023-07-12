@@ -34,6 +34,8 @@ return {
 		Unit = " ",
 		Value = "",
 		Variable = " ",
+		Preview = " ",
+		Rename = "󰑕 ",
 	},
 	git = {
 		LineAdded = " ",
@@ -98,7 +100,7 @@ return {
 		FileSymlink = "",
 		Files = "",
 		FindFile = "󰮗",
-		FindText = "",
+		FindText = " ",
 		Fire = "",
 		Folder = "",
 		FolderOpen = "",

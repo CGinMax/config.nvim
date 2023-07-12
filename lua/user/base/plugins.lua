@@ -68,7 +68,6 @@ return lazy.setup({
 			{ "lukas-reineke/cmp-under-comparator" }, -- 让补全结果的排序更加智能
 		},
 	},
-
 	-- nvim-treesitter: 语法高亮
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -77,6 +76,12 @@ return lazy.setup({
 	"nvim-treesitter/nvim-treesitter-textobjects",
 	-- show class/function at the top
 	"romgrk/nvim-treesitter-context",
+	{
+		"Badhi/nvim-treesitter-cpp-tools",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+	},
 
 	-- lspsaga:lsp ui美化
 	"tami5/lspsaga.nvim",

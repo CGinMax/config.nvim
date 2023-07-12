@@ -9,6 +9,8 @@ end
 local icons = require("user.icons")
 
 lspsaga.setup({
+	debug = false,
+	use_saga_diagnostic_sign = true,
 	-- 提示边框样式：round、single、double
 	border_style = "round",
 	error_sign = icons.diagnostics.BoldError,
@@ -26,6 +28,17 @@ lspsaga.setup({
 		sign_priority = 40,
 		virtual_text = true,
 	},
+	finder_definition_icon = icons.ui.FindText,
+	finder_reference_icon = icons.ui.FindText,
+	max_preview_lines = 10,
+	finder_action_keys = {
+		open = "o",
+		vsplit = "v",
+		split = "s",
+		quit = "q",
+		scroll_down = "<C-f>",
+		scroll_up = "<C-b>",
+	},
 	-- 快捷键配置
 	code_action_keys = {
 		quit = "<Esc>",
@@ -35,4 +48,14 @@ lspsaga.setup({
 		quit = "<Esc>",
 		exec = "<CR>",
 	},
+	definition_preview_icon = icons.kind.Preview,
+	rename_prompt_prefix = icons.kind.Rename,
+	rename_output_qflist = {
+		enable = false,
+		auto_open_qflist = false,
+	},
+	server_filetype_map = {},
+	diagnostic_prefix_format = "%d. ",
+	diagnostic_message_format = "%m %c",
+	highlight_prefix = false,
 })
