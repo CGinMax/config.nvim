@@ -24,7 +24,7 @@ dap.configurations.cpp = {
     end,
     args = function()
       local input = vim.fn.input("Input args: ")
-      return require("plugins.dap.dap-util").str2argtable(input)
+      return require("user.plugins.dap.dap-util").str2argtable(input)
     end,
     cwd = '${workspaceFolder}',
     stopOnEntry = true,
@@ -45,7 +45,7 @@ dap.configurations.cpp = {
     end,
     args = function()
       local input = vim.fn.input("Input args: ")
-      return require("plugins.dap.dap-util").str2argtable(input)
+      return require("user.plugins.dap.dap-util").str2argtable(input)
     end,
     cwd = '${workspaceFolder}',
     stopOnEntry = true,
@@ -82,7 +82,8 @@ dap.configurations.cpp = {
     request = 'launch',
     MIMode = 'gdb',
     miDebuggerServerAddress = 'localhost:1234',
-    miDebuggerPath = '/usr/bin/gdb', cwd = '${workspaceFolder}',
+    miDebuggerPath = '/usr/bin/gdb',
+    cwd = '${workspaceFolder}',
     program = function()
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
