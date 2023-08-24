@@ -8,6 +8,7 @@ M.setup = function()
     "init", -- we don't need to load init again
     -- "feline",
     "heirline",
+    "null-ls",
   }
 
   local unload_plugins_map = {}

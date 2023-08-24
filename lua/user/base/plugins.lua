@@ -93,16 +93,16 @@ return lazy.setup({
   "j-hui/fidget.nvim",
 
   -- null-ls:前端代码格式
-  "jose-elias-alvarez/null-ls.nvim",
+  -- "jose-elias-alvarez/null-ls.nvim",
   -- mason-null-ls
-  {
-    "jay-babu/mason-null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "williamboman/mason.nvim",
-      "jose-elias-alvarez/null-ls.nvim",
-    },
-  },
+  -- {
+  --   "jay-babu/mason-null-ls.nvim",
+  --   event = { "BufReadPre", "BufNewFile" },
+  --   dependencies = {
+  --     "williamboman/mason.nvim",
+  --     "jose-elias-alvarez/null-ls.nvim",
+  --   },
+  -- },
   -- dap
   'ravenxrz/DAPInstall.nvim', -- help us install several debuggers
   -- nvim-dap

@@ -33,14 +33,14 @@ local installed_servers = {
 	"cmake",
 	"gopls",
 	"rust_analyzer",
-	"html",
-	"cssls",
-	"tsserver",
-	"volar",
-	"pyright",
 	"bashls",
-	"jsonls",
-	"dockerls",
+	-- "html",
+	-- "cssls",
+	-- "tsserver",
+	-- "volar",
+	-- "pyright",
+	-- "jsonls",
+	-- "dockerls",
 }
 
 mason_lspconfig.setup({
@@ -53,11 +53,17 @@ mason_lspconfig.setup_handlers({
 			capabilities = handlers.capabilities,
 		})
 	end,
-	["tsserver"] = function()
-		lspconfig.tsserver.setup({
-			on_attach = handlers.on_attach,
-			capabilities = handlers.capabilities,
-			filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
-		})
-	end,
+  ["rust_analyzer"] = function ()
+    lspconfig.rust_analyzer.setup({
+      on_attach = handlers.on_attach,
+
+    })
+  end
+	-- ["tsserver"] = function()
+	-- 	lspconfig.tsserver.setup({
+	-- 		on_attach = handlers.on_attach,
+	-- 		capabilities = handlers.capabilities,
+	-- 		filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
+	-- 	})
+	-- end,
 })
