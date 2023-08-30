@@ -50,6 +50,7 @@ return lazy.setup({
       },
     },
   },
+  "simrat39/rust-tools.nvim",
 
   -- 自动代码补全系列插件
   {

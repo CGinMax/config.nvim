@@ -53,10 +53,26 @@ mason_lspconfig.setup_handlers({
 			capabilities = handlers.capabilities,
 		})
 	end,
+  ['lua_ls'] = function ()
+    lspconfig.lua_ls.setup({
+			on_attach = handlers.on_attach,
+			capabilities = handlers.capabilities,
+      settings = {
+      Lua = {
+        diagnostics = {
+          globals = { "vim" },
+        },
+      }},
+
+    })
+  end,
   ["rust_analyzer"] = function ()
+   --  require("rust-tools").setup({
+   --    on_attach = handlers.on_attach,
+			-- capabilities = handlers.capabilities,
+   --  })
     lspconfig.rust_analyzer.setup({
       on_attach = handlers.on_attach,
-
     })
   end
 	-- ["tsserver"] = function()
@@ -66,4 +82,16 @@ mason_lspconfig.setup_handlers({
 	-- 		filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
 	-- 	})
 	-- end,
+})
+
+local ok, rt = pcall(require, "rust-tools")
+if not ok then
+	require("user.utils").notify_error("rust-tools load failed!")
+	return
+end
+
+rt.setup({
+  server = {
+    on_attach = handlers.on_attach,
+  },
 })

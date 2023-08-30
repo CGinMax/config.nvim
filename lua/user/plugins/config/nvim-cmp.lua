@@ -49,24 +49,28 @@ cmp.setup({
 	},
 	-- 对补全建议排序
 	sorting = {
+    priority_weight = 1.0,
 		comparators = {
-			cmp.config.compare.offset,
 			cmp.config.compare.exact,
+      cmp.config.compare.locality,
 			cmp.config.compare.recently_used,
 			require("cmp-under-comparator").under,
 			cmp.config.compare.kind,
 			cmp.config.compare.sort_text,
+			cmp.config.compare.offset,
 			cmp.config.compare.order,
 		},
 	},
 	-- 绑定补全相关的按键
 	mapping = {
+    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
 		-- 上一个
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 		-- 下一个
 		["<C-n>"] = cmp.mapping.select_next_item(),
 		-- 选择补全
-		["<CR>"] = cmp.mapping.confirm(),
+		["<CR>"] = cmp.mapping.confirm({select = true}),
 		--  出现或关闭补全
 		-- FIXME: key mapping conflict with window move
 		["<C-.>"] = cmp.mapping({
@@ -85,14 +89,15 @@ cmp.setup({
 				end
 			end,
 		}),
-		-- FIXME: 类似于 IDEA 的功能，如果没进入选择框，tab 会选择下一个，如果进入了选择框，tab 会确认当前选择
+		-- NOTE: 类似于 IDEA 的功能，如果进入了选择框，tab 会确认当前选择，否则当做Tab缩进
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				local entry = cmp.get_selected_entry()
-				if not entry then
-					cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+				if entry then
+				  cmp.confirm()
+        else
+          fallback()
 				end
-				cmp.confirm()
 			else
 				fallback()
 			end
