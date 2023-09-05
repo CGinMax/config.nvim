@@ -6,6 +6,7 @@ if not ok then
 end
 
 local icons = require("user.icons")
+local colors = require("user.colors")
 
 nvim_tree.setup({
 	-- auto_close = false,
@@ -67,3 +68,6 @@ vim.g.nvim_tree_icons = {
 		symlink = icons.ui.FileSymlink,
 	},
 }
+vim.cmd[[
+  hi NvimTreeStatusLine guibg=#1F1F2B guifg=#abb2bf
+]]

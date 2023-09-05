@@ -8,7 +8,8 @@ return {
 		},
 	},
 	statusline = {
-		bg = "#282c34",
+		-- bg = "#282c34",
+    bg = "#1F1F2B",
 		fg = "#abb2bf",
 		yellow = "#e0af68",
 		cyan = "#56b6c2",

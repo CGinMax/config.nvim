@@ -38,6 +38,7 @@ local options = {
   foldenable = true,     -- 是否开启代码折叠
   foldmethod = "indent", -- 指定代码折叠的策略是按照缩进进行的
   foldlevel = 100,       -- 指定代码折叠的最高层级为 100
+  -- laststatus = 3,        -- 全局状态栏,nightly版本有效
 }
 
 for k, v in pairs(options) do
