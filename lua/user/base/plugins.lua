@@ -69,6 +69,11 @@ return lazy.setup({
       { "lukas-reineke/cmp-under-comparator" }, -- 让补全结果的排序更加智能
     },
   },
+
+  {
+    "p00f/clangd_extensions.nvim",
+  },
+
   -- nvim-treesitter: 语法高亮
   {
     "nvim-treesitter/nvim-treesitter",
@@ -174,6 +179,11 @@ return lazy.setup({
   {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
+  },
+
+  -- smooth scroll
+  {
+    "karb94/neoscroll.nvim",
   },
 
   -- bug插件
