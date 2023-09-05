@@ -93,17 +93,6 @@ return lazy.setup({
   -- fidget:lsp进度提示
   "j-hui/fidget.nvim",
 
-  -- null-ls:前端代码格式
-  -- "jose-elias-alvarez/null-ls.nvim",
-  -- mason-null-ls
-  -- {
-  --   "jay-babu/mason-null-ls.nvim",
-  --   event = { "BufReadPre", "BufNewFile" },
-  --   dependencies = {
-  --     "williamboman/mason.nvim",
-  --     "jose-elias-alvarez/null-ls.nvim",
-  --   },
-  -- },
   -- dap
   'ravenxrz/DAPInstall.nvim', -- help us install several debuggers
   -- nvim-dap
@@ -115,7 +104,6 @@ return lazy.setup({
 
   -- 状态栏美化
   "feline-nvim/feline.nvim",
-  -- "rebelot/heirline.nvim",
 
   -- bufferline: 支持 LSP 状态的 buffer 栏
   {
@@ -124,8 +112,6 @@ return lazy.setup({
       { "famiu/bufdelete.nvim" }, -- 删除 buffer 时不影响现有布局
     },
   },
-
-  "Bekaboo/dropbar.nvim",
 
   -- satellite:滚动条优化
   "lewis6991/satellite.nvim",
@@ -189,4 +175,24 @@ return lazy.setup({
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
   },
+
+  -- bug插件
+  --[[
+  --顶部下拉选单
+  "Bekaboo/dropbar.nvim",
+  -- null-ls:代码格式
+  "jose-elias-alvarez/null-ls.nvim",
+  mason-null-ls
+  {
+    "jay-babu/mason-null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "jose-elias-alvarez/null-ls.nvim",
+    },
+  },
+  -- 状态栏
+  "rebelot/heirline.nvim",
+  --]]
+
 })
