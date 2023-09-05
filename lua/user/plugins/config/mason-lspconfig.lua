@@ -32,7 +32,6 @@ local installed_servers = {
 	"clangd",
 	"cmake",
 	"gopls",
-	"rust_analyzer",
 	"bashls",
 	-- "html",
 	-- "cssls",
@@ -66,15 +65,6 @@ mason_lspconfig.setup_handlers({
 
     })
   end,
-  ["rust_analyzer"] = function ()
-   --  require("rust-tools").setup({
-   --    on_attach = handlers.on_attach,
-			-- capabilities = handlers.capabilities,
-   --  })
-    lspconfig.rust_analyzer.setup({
-      on_attach = handlers.on_attach,
-    })
-  end
 	-- ["tsserver"] = function()
 	-- 	lspconfig.tsserver.setup({
 	-- 		on_attach = handlers.on_attach,
