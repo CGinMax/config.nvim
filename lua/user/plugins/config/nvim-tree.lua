@@ -13,6 +13,7 @@ nvim_tree.setup({
 		width = 25,
 		hide_root_folder = false,
 		adaptive_size = true,
+    signcolumn = "no",
 	},
 	hijack_directories = {
 		enable = true,
