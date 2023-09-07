@@ -113,10 +113,6 @@ if ok then
 	-- 显示历史弹窗记录
 	utils.keymap(utils.mode_normal, "<leader>fn", telescope.extensions.notify.notify, utils.opts)
 end
--- local ok, neoclip = pcall(require, 'neoclip')
--- if ok then
---   utils.keymap({utils.mode_visual_block, utils.mode_insert}, '<leader>p', neoclip.toggle, utils.opts)
--- end
 
 -- LSP
 -- utils.keymap(utils.mode_normal, '<leader>do', vim.diagnostic.open_float, utils.opts)
