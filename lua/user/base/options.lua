@@ -25,14 +25,14 @@ local options = {
   cursorline = true,
   number = true,         -- 行号
   relativenumber = true, -- 相对行号
-  signcolumn = "yes",   -- 设置行号左边的符号列行为(when and how)
+  signcolumn = "yes",    -- 设置行号左边的符号列行为(when and how)
   wrap = false,
   linebreak = true,
   scrolloff = 10,
   sidescrolloff = 10,
   hidden = true,         -- 是否允许缓冲区未保存时就切换
   syntax = "enable",     -- 是否开启语法高亮
-  list = true,           -- 是否特殊显示空格等字符
+  list = false,          -- 是否特殊显示空格等字符
   showmatch = true,      -- 是否在插入括号时短暂跳转到另一半括号上
   wildmenu = true,       -- 是否开启命令行补全
   foldenable = true,     -- 是否开启代码折叠
@@ -46,9 +46,9 @@ for k, v in pairs(options) do
 end
 -- 取消自动注释，当前行是 -- 注释时，按下 CR 或者 o 默认会自动注释下一行，所以这里取消了
 -- vim.opt.shortmess = "ilmnrx"                        -- flags to shorten vim messages, see :help 'shortmess'
-vim.opt.listchars:append("space:⋅")                 -- space char
+vim.opt.listchars:append("space:⋅") -- space char
 -- vim.opt.listchars:append("eol:↴")                   -- enter char
-vim.opt.shortmess:append("c")                         -- don't give |ins-completion-menu| messages
-vim.opt.iskeyword:append("-")                         -- hyphenated words recognized by searches
-vim.opt.formatoptions:remove({ "c", "r", "o" })       -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
+vim.opt.shortmess:append("c") -- don't give |ins-completion-menu| messages
+vim.opt.iskeyword:append("-") -- hyphenated words recognized by searches
+vim.opt.formatoptions:remove({ "c", "r", "o" }) -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles") -- separate vim plugins from neovim in case vim still in use

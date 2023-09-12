@@ -39,18 +39,26 @@ return lazy.setup({
   },
 
   -- lsp
-  "neovim/nvim-lspconfig",
+  {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v3.x',
+  },
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp", -- 替换内置 omnifunc，获得更多补全
+      { "antosha417/nvim-lsp-file-operations", config = true, },
+    }
+  },
   -- lsp manager
   {
     "williamboman/mason.nvim",
     dependencies = {
       {
-        "hrsh7th/cmp-nvim-lsp", -- 替换内置 omnifunc，获得更多补全
         "williamboman/mason-lspconfig",
       },
     },
   },
-  "simrat39/rust-tools.nvim",
 
   -- 自动代码补全系列插件
   {
@@ -96,7 +104,7 @@ return lazy.setup({
   -- 重命名工具
   "smjonas/inc-rename.nvim",
   -- fidget:lsp进度提示
-  "j-hui/fidget.nvim",
+  { "j-hui/fidget.nvim", tag = "legacy" },
 
   -- dap
   'ravenxrz/DAPInstall.nvim', -- help us install several debuggers
