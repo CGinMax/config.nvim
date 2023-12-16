@@ -1,6 +1,6 @@
 -- https://github.com/lukas-reineke/indent-blankline.nvim
 
-local ok, indent_blankline = pcall(require, "indent_blankline")
+local ok, ibl = pcall(require, "ibl")
 if not ok then
   require("user.utils").notify_error("lukas-reineke/indent-blankline load failed!")
   return
@@ -13,15 +13,15 @@ vim.cmd([[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]])
 vim.cmd([[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]])
 vim.cmd([[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]])
 
-indent_blankline.setup({
+ibl.setup({
   -- 显示当前所在区域
-  show_current_context = true,
+  -- show_current_context = true,
   -- 显示当前所在区域的开始位置
-  show_current_context_start = true,
+  -- show_current_context_start = true,
   -- 显示行尾符
-  show_end_of_line = true,
-  show_trailing_blankline_indent = true,
-  space_char_blankline = " ",
+  -- show_end_of_line = true,
+  -- show_trailing_blankline_indent = true,
+  -- space_char_blankline = " ",
   -- colorful
   -- char_highlight_list = {
   -- 	"IndentBlanklineIndent1",
@@ -31,13 +31,13 @@ indent_blankline.setup({
   -- 	"IndentBlanklineIndent5",
   -- 	"IndentBlanklineIndent6",
   -- },
-  filetype_exclude = {
-    "help",
-    "startify",
-    "dashboard",
-    "packer",
-    "neogitstatus",
-    "NvimTree",
-    "Trouble",
-  },
+  -- filetype_exclude = {
+  --   "help",
+  --   "startify",
+  --   "dashboard",
+  --   "packer",
+  --   "neogitstatus",
+  --   "NvimTree",
+  --   "Trouble",
+  -- },
 })

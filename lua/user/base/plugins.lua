@@ -96,7 +96,7 @@ return lazy.setup({
   -- 重命名工具
   "smjonas/inc-rename.nvim",
   -- fidget:lsp进度提示
-  "j-hui/fidget.nvim",
+  {"j-hui/fidget.nvim", tag="legacy"},
 
   -- dap
   'ravenxrz/DAPInstall.nvim', -- help us install several debuggers
@@ -150,7 +150,7 @@ return lazy.setup({
   "sindrets/winshift.nvim",
 
   -- indent-blankline: 显示缩进线
-  "lukas-reineke/indent-blankline.nvim",
+  {"lukas-reineke/indent-blankline.nvim", main="ibl"},
 
   -- 显示网页色
   "norcalli/nvim-colorizer.lua",
