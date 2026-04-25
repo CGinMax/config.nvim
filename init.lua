@@ -7,3 +7,5 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 	command = "source <afile>",
 })
 require("user")
+
+require("current-theme")

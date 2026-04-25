@@ -18,16 +18,13 @@ return {
 		"nvim-telescope/telescope-dap.nvim", -- dap
 	},
 	config = function()
-		local ok, telescope = pcall(require, "telescope")
-		if not ok then
-			require("user.utils").notify_error("Lazy Plugin", "nvim-telescope/telescope.nvim")
-			return
-		end
+		local telescope = require("telescope")
 
 		local actions = require("telescope.actions")
-		local trouble = require("trouble.sources.telescope")
+
 		-- disable preview binaries
 		local previewers = require("telescope.previewers")
+
 		local Job = require("plenary.job")
 		local new_maker = function(filepath, bufnr, opts)
 			filepath = vim.fn.expand(filepath)
@@ -61,7 +58,7 @@ return {
 						-- setting `path_display.shorten = { len = 1, exclude = {1, -1} }`
 						-- will give a path like:
 						--   `alpha/b/g/delta.txt`
-						len = 4,
+						len = 6,
 						exclude = { 1, -1 },
 					},
 				},
@@ -88,8 +85,7 @@ return {
 						["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
 						["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 						["<C-l>"] = actions.complete_tag,
-						["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
-						["<C-t>"] = trouble.open,
+						["<C-?>"] = actions.which_key, -- keys from pressing <C-/>
 					},
 					n = {
 						["<esc>"] = actions.close,

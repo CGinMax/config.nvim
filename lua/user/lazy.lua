@@ -24,14 +24,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local ok, lazy = pcall(require, "lazy")
-if not ok then
-	print("folke/lazy.nvim load failed!")
-	return
-end
-
--- Setup lazy.nvim
-lazy.setup({
+require("lazy").setup({
 	spec = {
 		-- import your plugins
 		{ import = "plugins" },

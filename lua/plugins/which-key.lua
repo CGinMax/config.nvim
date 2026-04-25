@@ -1,6 +1,5 @@
 -- https://github.com/folke/which-key.nvim
 return {
-	-- which key
 	"folke/which-key.nvim",
 	event = "VeryLazy",
 	dependencies = {
@@ -8,9 +7,7 @@ return {
 		"echasnovski/mini.icons",
 	},
 	config = function()
-		local which_key = require("which-key")
-
-		which_key.setup({
+		require("which-key").setup({
 
 			delay = function(ctx)
 				return ctx.plugin and 0 or 500

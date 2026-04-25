@@ -3,11 +3,7 @@
 return {
 	"rebelot/kanagawa.nvim",
 	config = function()
-		local status_ok, kanagawa = pcall(require, "kanagawa")
-		if not status_ok then
-			require("user.utils").notify_error("Lazy Plugin", "rebelot/kanagawa.nvim load failed!")
-			return
-		end
+		local kanagawa = require("kanagawa")
 
 		kanagawa.setup({
 			compile = false, -- enable compiling the colorscheme
@@ -42,7 +38,5 @@ return {
 				light = "lotus",
 			},
 		})
-		-- setup must be called before loading
-		vim.cmd("colorscheme kanagawa")
 	end,
 }

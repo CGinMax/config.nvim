@@ -9,6 +9,7 @@ vim.keybinds = {
 
 utils.keymap({ utils.mode_normal, utils.mode_visual }, "<space>w", ":wa<CR>", utils.opts)
 utils.keymap({ utils.mode_normal, utils.mode_visual }, "<space>q", ":qa!<CR>", utils.opts)
+utils.keymap({ utils.mode_normal, utils.mode_visual }, "<space>e", ":q!<CR>", utils.opts)
 
 -- 重新修改跳转到头和尾
 utils.keymap({ utils.mode_normal, utils.mode_visual }, "H", "^", utils.opts)
@@ -120,3 +121,8 @@ utils.keymap(utils.mode_normal, "<leader>rn", ":IncRename ", utils.opts)
 utils.keymap(utils.mode_normal, "<leader>dt", "<cmd>Trouble diagnostics toggle follow=true<CR>", utils.opts)
 utils.keymap(utils.mode_normal, "<leader>st", "<cmd>Trouble symbols toggle focus=false<CR>", utils.opts)
 utils.keymap(utils.mode_normal, "<leader>lt", "<cmd>Trouble lsp toggle focus=false win.position=right<CR>", utils.opts)
+
+-- icon picker
+utils.keymap(utils.mode_normal, "<leader>ipn", "<cmd>IconPickerNormal<cr>", opts)
+utils.keymap(utils.mode_normal, "<leader>ipy", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
+utils.keymap(utils.mode_normal, "<leader>ipi", "<cmd>IconPickerInsert<cr>", opts)

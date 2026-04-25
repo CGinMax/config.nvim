@@ -1,14 +1,6 @@
 -- https://github.com/norcalli/nvim-colorizer.lua
 return {
-  -- 显示网页色
-  "norcalli/nvim-colorizer.lua",
-  config = function()
-    local ok, colorizer = pcall(require, "colorizer")
-    if not ok then
-      require("user.utils").notify_error("Lazy Plugin", "norcalli/nvim-colorizer load failed!")
-      return
-    end
-
-    colorizer.setup()
-  end,
+	-- 显示网页色
+	"norcalli/nvim-colorizer.lua",
+	opts = {},
 }
