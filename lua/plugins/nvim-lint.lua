@@ -11,7 +11,6 @@ return {
 			typescript = frontend_lint,
 			javascriptreact = frontend_lint,
 			typescriptreact = frontend_lint,
-			markdown = { "vale" },
 			yaml = { "yamllint" },
 			json = { "jsonlint" },
 			-- go = { "golangci-lint" },
