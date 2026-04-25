@@ -97,12 +97,6 @@ return {
 			displayed = { error = true, warn = true, info = true, hint = true },
 		}
 
-		local filename = {
-			"filename",
-			file_status = true,
-			path = 0,
-		}
-
 		local filename_with_icon = {
 			function()
 				local name = vim.fn.expand("%:t")

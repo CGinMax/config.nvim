@@ -64,9 +64,10 @@ local servers = {
 	lua_ls = {
 		settings = {
 			Lua = {
+				runtime = { version = "LuaJIT" },
 				workspace = { checkThirdParty = false },
 				telemetry = { enabled = false },
-				diagnostics = { globals = { "vim", "vim.diagnostic" } },
+				diagnostics = { globals = { "vim" } },
 			},
 		},
 	},
