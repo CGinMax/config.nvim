@@ -66,7 +66,7 @@ local servers = {
 			Lua = {
 				workspace = { checkThirdParty = false },
 				telemetry = { enabled = false },
-				diagnostics = { globals = { "vim" } },
+				diagnostics = { globals = { "vim", "vim.diagnostic" } },
 			},
 		},
 	},
