@@ -10,10 +10,10 @@ return {
 
 		local colors = {
 
-			FRONT = "#092236",
-			FRONTGROUND = "#c3ccdc",
-			BACKGROUND = "#282a3a",
-			DISABLE = "#a1aab8",
+			FONT = user_colors.statusline.font,
+			FRONTGROUND = user_colors.statusline.fg,
+			BACKGROUND = user_colors.statusline.bg,
+			DISABLE = user_colors.statusline.inactive,
 
 			NORMAL = user_colors.statusline.green,
 			INSERT = user_colors.statusline.red,
@@ -51,7 +51,7 @@ return {
 
 		local theme = {
 			replace = {
-				a = { fg = colors.FRONT, bg = colors.REPLACE, gui = "bold" },
+				a = { fg = colors.FONT, bg = colors.REPLACE, gui = "bold" },
 				b = { fg = colors.FRONTGROUND, bg = colors.BACKGROUND },
 			},
 			inactive = {
@@ -60,16 +60,16 @@ return {
 				c = { fg = colors.DISABLE, bg = colors.BACKGROUND },
 			},
 			normal = {
-				a = { fg = colors.FRONT, bg = colors.NORMAL, gui = "bold" },
+				a = { fg = colors.FONT, bg = colors.NORMAL, gui = "bold" },
 				b = { fg = colors.FRONTGROUND, bg = colors.BACKGROUND },
 				c = { fg = colors.FRONTGROUND, bg = colors.BACKGROUND },
 			},
 			visual = {
-				a = { fg = colors.FRONT, bg = colors.VISUAL, gui = "bold" },
+				a = { fg = colors.FONT, bg = colors.VISUAL, gui = "bold" },
 				b = { fg = colors.FRONTGROUND, bg = colors.BACKGROUND },
 			},
 			insert = {
-				a = { fg = colors.FRONT, bg = colors.INSERT, gui = "bold" },
+				a = { fg = colors.FONT, bg = colors.INSERT, gui = "bold" },
 				b = { fg = colors.FRONTGROUND, bg = colors.BACKGROUND },
 			},
 		}

@@ -1,3 +1,1 @@
--- setup must be called before loading
-vim.cmd("colorscheme monokai-pro")
--- vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme monokai-pro-octagon")

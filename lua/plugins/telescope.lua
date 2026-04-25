@@ -15,6 +15,7 @@ return {
 		"sharkdp/fd", -- 文本查找
 		"nvim-telescope/telescope-live-grep-raw.nvim", -- 搜索预览
 		"nvim-telescope/telescope-ui-select.nvim", -- ui-select
+		"andrew-george/telescope-themes",
 		"nvim-telescope/telescope-dap.nvim", -- dap
 	},
 	config = function()
@@ -44,6 +45,7 @@ return {
 				end,
 			}):sync()
 		end
+		telescope.load_extension("themes")
 
 		telescope.setup({
 			defaults = {

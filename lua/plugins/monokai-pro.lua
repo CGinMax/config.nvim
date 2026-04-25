@@ -5,9 +5,16 @@ return {
 	lazy = false,
 	priority = 1000,
 	config = function()
-		require("monokai-pro").setup({
-			disabled_plugins = { "bufferline", "nvim-tree" },
+		local monokai = require("monokai-pro")
+
+		monokai.setup({
 			filter = "octagon",
+			background_clear = {
+				"toggleterm",
+				"telescope",
+				"renamer",
+				"notify",
+			},
 		})
 	end,
 }
