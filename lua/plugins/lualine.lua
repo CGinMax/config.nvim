@@ -9,10 +9,11 @@ return {
 		local user_colors = require("user.colors")
 
 		local colors = {
-			color0 = "#092236",
-			color2 = "#c3ccdc",
-			color3 = "#1c1e26",
-			color6 = "#a1aab8",
+
+			FRONT = "#092236",
+			FRONTGROUND = "#c3ccdc",
+			BACKGROUND = "#282a3a",
+			DISABLE = "#a1aab8",
 
 			NORMAL = user_colors.statusline.green,
 			INSERT = user_colors.statusline.red,
@@ -48,28 +49,28 @@ return {
 			sep = "|",
 		}
 
-		local my_lualine_theme = {
+		local theme = {
 			replace = {
-				a = { fg = colors.color0, bg = colors.REPLACE, gui = "bold" },
-				b = { fg = colors.color2, bg = colors.color3 },
+				a = { fg = colors.FRONT, bg = colors.REPLACE, gui = "bold" },
+				b = { fg = colors.FRONTGROUND, bg = colors.BACKGROUND },
 			},
 			inactive = {
-				a = { fg = colors.color6, bg = colors.color3, gui = "bold" },
-				b = { fg = colors.color6, bg = colors.color3 },
-				c = { fg = colors.color6, bg = colors.color3 },
+				a = { fg = colors.DISABLE, bg = colors.BACKGROUND, gui = "bold" },
+				b = { fg = colors.DISABLE, bg = colors.BACKGROUND },
+				c = { fg = colors.DISABLE, bg = colors.BACKGROUND },
 			},
 			normal = {
-				a = { fg = colors.color0, bg = colors.NORMAL, gui = "bold" },
-				b = { fg = colors.color2, bg = colors.color3 },
-				c = { fg = colors.color2, bg = colors.color3 },
+				a = { fg = colors.FRONT, bg = colors.NORMAL, gui = "bold" },
+				b = { fg = colors.FRONTGROUND, bg = colors.BACKGROUND },
+				c = { fg = colors.FRONTGROUND, bg = colors.BACKGROUND },
 			},
 			visual = {
-				a = { fg = colors.color0, bg = colors.VISUAL, gui = "bold" },
-				b = { fg = colors.color2, bg = colors.color3 },
+				a = { fg = colors.FRONT, bg = colors.VISUAL, gui = "bold" },
+				b = { fg = colors.FRONTGROUND, bg = colors.BACKGROUND },
 			},
 			insert = {
-				a = { fg = colors.color0, bg = colors.INSERT, gui = "bold" },
-				b = { fg = colors.color2, bg = colors.color3 },
+				a = { fg = colors.FRONT, bg = colors.INSERT, gui = "bold" },
+				b = { fg = colors.FRONTGROUND, bg = colors.BACKGROUND },
 			},
 		}
 
@@ -136,8 +137,9 @@ return {
 
 		lualine.setup({
 			icons_enabled = true,
+			disabled_filetypes = { "NvimTree" },
 			options = {
-				theme = my_lualine_theme,
+				theme = theme,
 				component_separators = { left = icons.sep, right = icons.sep },
 				section_separators = { left = icons.sep, right = "" },
 			},

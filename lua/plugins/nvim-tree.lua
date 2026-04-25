@@ -66,7 +66,7 @@ return {
 			},
 		}
 		vim.cmd([[
-      hi NvimTreeStatusLine guibg=#242933 guifg=#abb2bf
+      hi NvimTreeStatusLine guibg=#282a3a guifg=#abb2bf
     ]])
 	end,
 }
