@@ -2,11 +2,8 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require('user')
--- 基础配置
--- require('basic.plugins')
--- require('basic.settings')
--- require('basic.keybinds')
-
--- require('plugins.conf')
--- require('plugins.dap')
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = "init.lua",
+	command = "source <afile>",
+})
+require("user")
