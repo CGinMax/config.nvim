@@ -11,10 +11,10 @@ return {
 			typescript = frontend_lint,
 			javascriptreact = frontend_lint,
 			typescriptreact = frontend_lint,
-			go = { "golangci-lint" },
 			markdown = { "vale" },
 			yaml = { "yamllint" },
 			json = { "jsonlint" },
+			-- go = { "golangci-lint" },
 		}
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
