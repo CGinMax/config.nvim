@@ -12,7 +12,7 @@ return {
 	config = function()
 		local bufferline = require("bufferline")
 
-		local icons = require("user.icons")
+		local user_icons = require("user.icons")
 
 		bufferline.setup({
 			options = {
@@ -39,19 +39,22 @@ return {
 				show_close_icon = true,
 				show_tab_indicators = true,
 				show_duplicate_prefix = true,
-				buffer_close_icon = "󰖭",
-				modified_icon = "● ",
-				close_icon = "󰖭",
-				left_trunc_marker = "",
-				right_trunc_marker = "",
+				buffer_close_icon = user_icons.ui.Close,
+				modified_icon = user_icons.ui.Circle,
+				close_icon = user_icons.ui.Close,
+				left_trunc_marker = user_icons.ui.ArrowCircleLeft,
+				right_trunc_marker = user_icons.ui.ArrowCircleRight,
 				-- 使用内置 LSP 进行诊断
 				diagnostics = "nvim_lsp",
 				-- 显示 LSP 报错图标
 				diagnostics_indicator = function(count, level, diagnostics_dict, context)
 					local s = " "
 					for e, n in pairs(diagnostics_dict) do
-						local sym = e == "error" and icons.diagnostics.BoldError
-							or (e == "warning" and icons.diagnostics.BoldWarning or icons.diagnostics.BoldInformation)
+						local sym = e == "error" and user_icons.diagnostics.BoldError
+							or (
+								e == "warning" and user_icons.diagnostics.BoldWarning
+								or user_icons.diagnostics.BoldInformation
+							)
 						s = s .. n .. sym
 					end
 					return s

@@ -45,8 +45,8 @@ return {
 			changed = user_icons.git.LineChanged,
 			added = user_icons.git.LineAdded,
 			removed = user_icons.git.LineRemoved,
-			prefix = " ",
-			sep = "|",
+			prefix = user_icons.kind.Vim,
+			sep = user_icons.ui.LineMiddle,
 		}
 
 		local theme = {
