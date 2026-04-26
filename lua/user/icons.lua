@@ -36,6 +36,7 @@ return {
 		Variable = " ",
 		Preview = " ",
 		Rename = "󰑕 ",
+		Vim = " ",
 	},
 	git = {
 		LineAdded = " ",
@@ -69,7 +70,7 @@ return {
 		BoldDividerRight = "",
 		BoldLineLeft = "▎",
 		LineLeft = "▏",
-		LineMiddle = "│",
+		LineMiddle = "|",
 		BookMark = "",
 		BoxChecked = "",
 		Bug = "",
