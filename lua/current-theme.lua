@@ -1,1 +1,1 @@
-vim.cmd("colorscheme monokai-pro-octagon")
+vim.cmd("colorscheme kanagawa-wave")
