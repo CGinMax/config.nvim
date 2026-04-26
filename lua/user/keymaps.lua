@@ -171,6 +171,19 @@ utils.set_keymap(
 	{ desc = "Lsp Implementations" }
 )
 
+-- git
+
+utils.set_keymap(utils.mode_normal, "<leader>lzg", "<cmd>LazyGit<CR>", utils.opts, { desc = "Open LazyGit" })
+utils.set_keymap(utils.mode_normal, "<leader>dvo", "<cmd>DiffviewOpen<CR>", utils.opts, { desc = "Open Diffview" })
+utils.set_keymap(utils.mode_normal, "<leader>dvc", "<cmd>DiffviewClose<CR>", utils.opts, { desc = "Close Diffview" })
+utils.set_keymap(
+	utils.mode_normal,
+	"<leader>dvfh",
+	"<cmd>DiffviewFileHistory<CR>",
+	utils.opts,
+	{ desc = "Diffview File History" }
+)
+
 -- Claude Code:
 utils.set_keymap(utils.mode_normal, "<leader>cc", "<cmd>ClaudeCode<CR>", utils.opts, { desc = "Toggle Claude Code" })
 
@@ -206,10 +219,6 @@ utils.set_keymap(
 	utils.opts,
 	{ desc = "Jump prev diagnostics" }
 )
-
--- lsp_signature
---local lsp_signature = require("lsp_signature")
---utils.set_keymap(utils.mode_normal, "K", lsp_signature.toggle_float_win, utils.opt, { desc = "toggle signature" })
 
 -- inc-rename
 utils.set_keymap(utils.mode_normal, "<leader>rn", ":IncRename ", utils.opts, { desc = "Rename" })
