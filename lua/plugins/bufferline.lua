@@ -21,6 +21,7 @@ return {
 					delay = 200,
 					reveal = { "close" },
 				},
+				themeable = true, -- 允许主题覆盖
 				-- 左侧让出 nvim-tree 的位置
 				offsets = {
 					{

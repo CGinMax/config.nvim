@@ -83,7 +83,7 @@ utils.set_keymap(utils.mode_normal, "th", "<cmd>BufferLineCyclePrev<CR>", utils.
 -- 关闭左侧缓冲区
 utils.set_keymap(
 	utils.mode_normal,
-	"<leader>tch",
+	"<leader>bch",
 	"<cmd>BufferLineCloseLeft<CR>",
 	utils.opts,
 	{ desc = "BufferLineCloseLeft" }
@@ -91,7 +91,7 @@ utils.set_keymap(
 -- 关闭右侧缓冲区
 utils.set_keymap(
 	utils.mode_normal,
-	"<leader>tcl",
+	"<leader>bcl",
 	"<cmd>BufferLineCloseRight<CR>",
 	utils.opts,
 	{ desc = "BufferLineCloseRight" }
@@ -187,23 +187,17 @@ utils.set_keymap(
 -- Claude Code:
 utils.set_keymap(utils.mode_normal, "<leader>cc", "<cmd>ClaudeCode<CR>", utils.opts, { desc = "Toggle Claude Code" })
 
--- LSP
--- utils.set_keymap(utils.mode_normal, '<leader>do', vim.diagnostic.open_float, utils.opts)
--- utils.set_keymap(utils.mode_normal, '<leader>dl', vim.diagnostic.setloclist, utils.opts)
--- utils.set_keymap(utils.mode_normal, '[d', vim.diagnostic.goto_next, utils.opts)
--- utils.set_keymap(utils.mode_normal, ']d', vim.diagnostic.goto_prev, utils.opts)
---
 -- Lspsaga
 -- replace lsp hover-
-utils.set_keymap(utils.mode_normal, "K", ":Lspsaga hover_doc<CR>", utils.opts, { desc = "Hover" })
-utils.set_keymap(utils.mode_normal, "gf", ":Lspsaga finder<CR>", utils.opts, { desc = "Finder" })
-utils.set_keymap(utils.mode_normal, "<M-CR>", ":Lspsaga code_action<CR>", utils.opts, { desc = "Code Action" })
+utils.set_keymap(utils.mode_normal, "<leader>lh", ":Lspsaga hover_doc<CR>", utils.opts, { desc = "Hover" })
+utils.set_keymap(utils.mode_normal, "<leader>lf", ":Lspsaga finder<CR>", utils.opts, { desc = "Finder" })
+utils.set_keymap(utils.mode_normal, "<leader>lca", ":Lspsaga code_action<CR>", utils.opts, { desc = "Code Action" })
 utils.set_keymap(
 	utils.mode_normal,
-	"gpd",
-	":Lspsaga preview_definition<CR>",
+	"<leader>lwd",
+	":Lspsaga show_workspace_diagnostics<CR>",
 	utils.opts,
-	{ desc = "Preview definition" }
+	{ desc = "Show workspace diagnostics" }
 )
 utils.set_keymap(
 	utils.mode_normal,
@@ -226,24 +220,17 @@ utils.set_keymap(utils.mode_normal, "<leader>rn", ":IncRename ", utils.opts, { d
 -- Trouble
 utils.set_keymap(
 	utils.mode_normal,
-	"<leader>dt",
+	"<leader>td",
 	"<cmd>Trouble diagnostics toggle follow=true<CR>",
 	utils.opts,
 	{ desc = "Toggle Trouble diagnostics" }
 )
 utils.set_keymap(
 	utils.mode_normal,
-	"<leader>st",
+	"<leader>ts",
 	"<cmd>Trouble symbols toggle focus=false<CR>",
 	utils.opts,
 	{ desc = "Toggle Trouble symbols" }
-)
-utils.set_keymap(
-	utils.mode_normal,
-	"<leader>lt",
-	"<cmd>Trouble lsp toggle focus=false win.position=right<CR>",
-	utils.opts,
-	{ desc = "Toggle Trouble lsp" }
 )
 
 -- icon picker
