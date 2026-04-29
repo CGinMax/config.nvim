@@ -119,6 +119,7 @@ return {
 			},
 			pickers = {
 				find_files = {
+					hidden = true,
 					theme = "ivy",
 					previewer = true,
 					find_command = { "fd" },

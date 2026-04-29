@@ -186,6 +186,28 @@ utils.set_keymap(
 
 -- Claude Code:
 utils.set_keymap(utils.mode_normal, "<leader>cc", "<cmd>ClaudeCode<CR>", utils.opts, { desc = "Toggle Claude Code" })
+utils.set_keymap(
+	utils.mode_normal,
+	"<leader>ccf",
+	"<cmd>ClaudeCodeAdd %<CR>",
+	utils.opts,
+	{ desc = "Add current buffer file to Claude Code" }
+)
+
+utils.set_keymap(
+	utils.mode_visual,
+	"<leader>ccs",
+	"<cmd>ClaudeCodeSend<CR>",
+	utils.opts,
+	{ desc = "Send selected text to Claude Code" }
+)
+utils.set_keymap(
+	utils.mode_normal,
+	"<leader>cctf",
+	"<cmd>ClaudeCodeTreeAdd<CR>",
+	utils.opts,
+	{ desc = "Add tree file to Claude Code" }
+)
 
 -- Lspsaga
 -- replace lsp hover-
